@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { useMovies } from '../utils/utils-functions';
+
+// captura el paramentro
+const { movie } = Astro.params;
+const { moviesResponse } = await useMovies();
+
+// filtra el arreglo por el parametro requerido
+const info = moviesResponse.find((item) => item.title === movie);
+
+console.log(info);
+
+// si tengo error, mandame a la pagina 404
+if (!info) {
+  return Astro.redirect('/404');
+}
+---
+
+<Layout title={info.title}>
+  {info}
+</Layout>

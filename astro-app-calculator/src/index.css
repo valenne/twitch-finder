@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+
+@font-face {
+	font-family: 'Ghibli Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: url('../public/fonts/Eyad Al-Samman - Ghibli.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Ghibli Bold';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Ghibli Bold'), url('../public/fonts/Eyad Al-Samman - Ghibli-Bold.woff') format('woff');
+}
+
+@tailwind utilities;
