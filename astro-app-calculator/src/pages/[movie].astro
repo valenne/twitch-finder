@@ -17,6 +17,19 @@ if (!info) {
 }
 ---
 
-<Layout title={info.title}>
-  {info}
+<Layout title={`movie: ${info.title}`}>
+  <div>
+    <h1 class='text-center py-4 mt-4 text-4xl'>{info.title}</h1>
+    <div class='grid grid-cols-2 gap-4'>
+      <div>
+        <picture>
+          <img src={info.image} />
+        </picture>
+      </div>
+      <div>
+        <h2>Description:</h2>
+        <p>{info.description}</p>
+      </div>
+    </div>
+  </div>
 </Layout>

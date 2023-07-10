@@ -1,11 +1,17 @@
 ---
+import error from '../assets/img/error-404.png';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title='404 - error'>
+<Layout title={'error - 404'}>
   <div class='grid items-center max-w-4xl m-auto min-h-screen place-content-center'>
-    <div class='mx-auto w-full'>
-      <img src='https://http.cat/images/404.jpg' />
+    <div class='grid gap-4 mx-auto w-full'>
+      <img
+        class='h-80 w-80'
+        src={error}
+        alt='Error-404'
+      />
+      <p class='text-center text-white text-4xl py-4'>Pagina no Encontrada . . .</p>
     </div>
   </div>
 </Layout>
