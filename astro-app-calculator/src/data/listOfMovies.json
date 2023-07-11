@@ -13,7 +13,16 @@
 		"running_time": "124",
 		"rt_score": "95",
 		"people": [
-			"https://ghibliapi.vercel.app/people/598f7048-74ff-41e0-92ef-87dc1ad980a9",
+			{
+				"id": "598f7048-74ff-41e0-92ef-87dc1ad980a9",
+				"name": "Lusheeta Toel Ul Laputa",
+				"gender": "Female",
+				"age": "13",
+				"eye_color": "Black",
+				"hair_color": "Black",
+				"species": "Human",
+				"url_img": "https://ami.animecharactersdatabase.com/uploads/2868-324512413.jpg"
+			},
 			"https://ghibliapi.vercel.app/people/fe93adf2-2f3a-4ec4-9f68-5422f1b87c01",
 			"https://ghibliapi.vercel.app/people/3bc0b41e-3569-4d20-ae73-2da329bf0786",
 			"https://ghibliapi.vercel.app/people/40c005ce-3725-4f15-8409-3e1b1b14b583",

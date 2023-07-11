@@ -1,4 +1,6 @@
 ---
+import CardInfo from '../components/CardInfo.astro';
+import moviesMock from '../data/listOfMovies.json';
 import Layout from '../layouts/Layout.astro';
 import { useMovies } from '../utils/utils-functions';
 
@@ -9,8 +11,6 @@ const { moviesResponse } = await useMovies();
 // filtra el arreglo por el parametro requerido
 const info = moviesResponse.find((item) => item.title === movie);
 
-console.log(info);
-
 // si tengo error, mandame a la pagina 404
 if (!info) {
   return Astro.redirect('/404');
@@ -18,18 +18,59 @@ if (!info) {
 ---
 
 <Layout title={`movie: ${info.title}`}>
-  <div>
-    <h1 class='text-center py-4 mt-4 text-4xl'>{info.title}</h1>
-    <div class='grid grid-cols-2 gap-4'>
-      <div>
-        <picture>
-          <img src={info.image} />
+  <section class='w-full h-full'>
+    <div class='grid grid-cols-1 md:grid-cols-2 gap-4 py-4 px-8'>
+      <div class='relative block w-full h-full p-5 group'>
+        <picture
+          class='block w-full h-full border border-transparent rounded-lg group-hover:border group-hover:border-[#777B7A] transition-all duration-300 ease-in-out'>
+          <img
+            class='block w-full h-full aspect-auto rounded-lg group-hover:contrast-125 transition-all duration-300 ease-in-out'
+            src={info.image}
+          />
         </picture>
       </div>
-      <div>
-        <h2>Description:</h2>
-        <p>{info.description}</p>
+      <div class='py-4 px-5 md:px-4'>
+        <div class='flex flex-col gap-2'>
+          <CardInfo
+            info={info}
+            tagName='title'
+          />
+          <CardInfo
+            info={info}
+            tagName='original_title'
+          />
+          <CardInfo
+            info={info}
+            tagName='description'
+          />
+          <CardInfo
+            info={info}
+            tagName='director'
+          />
+          <CardInfo
+            info={info}
+            tagName='producer'
+          />
+          <CardInfo
+            info={info}
+            tagName='release_date'
+          />
+          <CardInfo
+            info={info}
+            tagName='running_time'
+            tagDuration='min'
+          />
+          <CardInfo
+            info={info}
+            tagName='rt_score'
+            tagScore='100'
+          />
+          <img
+            class='aspect-square w-24 h-24'
+            src={moviesMock[0].people[0].url_img}
+          />
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </Layout>

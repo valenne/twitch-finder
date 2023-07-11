@@ -34,6 +34,9 @@ const { title, className } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class={twMerge(`font-ghibli m-auto max-w-4xl bg-[#151c26] text-white ${className}`)}>
-		<slot />
+		<main class='m-auto max-w-4xl'>
+			<h1 class='font-black uppercase text-8xl text-center py-4 mt-4'>Studio Ghibli Movies</h1>
+			<slot />
+		</main>
 	</body>
 </html>
