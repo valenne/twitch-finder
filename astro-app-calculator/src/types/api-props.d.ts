@@ -23,3 +23,14 @@ export type MoviesProps = {
 	limit: number;
 	errors?: Array<{ message: string }>;
 };
+
+export type Persona = {
+	id: string;
+	name: string;
+	gender: string;
+	age: string;
+	eye_color: string;
+	hair_color: string;
+	species: string;
+	url_img?: string;
+};

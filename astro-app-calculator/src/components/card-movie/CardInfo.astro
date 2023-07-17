@@ -1,0 +1,79 @@
+---
+import type { GhibliProps } from '../../types/api-props';
+
+type Props = {
+  data: GhibliProps;
+  people?: object[];
+};
+
+const { data, people } = Astro.props;
+---
+
+<>
+  <div class='movie-wrapper mb-4'>
+    <!-- title -->
+    <div class='grid grid-cols-1 movie_tag_description mb-2'>
+      <h2 class='text-2xl font-bold capitalize'>Title:</h2>
+      <span class='border border-gray-600'></span>
+      <div class='text-base text-justify text-gray-300 tracking-wide leading-relaxed'>
+        <p>{data.title}</p>
+      </div>
+    </div>
+    <!-- orignal_title -->
+    <div class='grid grid-cols-1 movie_tag_description mb-2'>
+      <h2 class='text-2xl font-bold capitalize'>Original Title:</h2>
+      <span class='border border-gray-600'></span>
+      <div class='text-base text-justify text-gray-300 tracking-wide leading-relaxed'>
+        <p>{data.original_title}</p>
+      </div>
+    </div>
+    <!-- description -->
+    <div class='grid grid-cols-1 movie_tag_description mb-2'>
+      <h2 class='text-2xl font-bold capitalize'>Description:</h2>
+      <span class='border border-gray-600'></span>
+      <div class='text-base text-justify text-gray-300 tracking-wide leading-relaxed'>
+        <p>{data.description}</p>
+      </div>
+    </div>
+    <!-- director -->
+    <div class='grid grid-cols-1 movie_tag_description mb-2'>
+      <h2 class='text-2xl font-bold capitalize'>Director:</h2>
+      <span class='border border-gray-600'></span>
+      <div class='text-base text-justify text-gray-300 tracking-wide leading-relaxed'>
+        <p>{data.director}</p>
+      </div>
+    </div>
+    <!-- producer -->
+    <div class='grid grid-cols-1 movie_tag_description mb-2'>
+      <h2 class='text-2xl font-bold capitalize'>Producer:</h2>
+      <span class='border border-gray-600'></span>
+      <div class='text-base text-justify text-gray-300 tracking-wide leading-relaxed'>
+        <p>{data.producer}</p>
+      </div>
+    </div>
+    <!-- realease date -->
+    <div class='grid grid-cols-1 movie_tag_description mb-2'>
+      <h2 class='text-2xl font-bold capitalize'>Release Date:</h2>
+      <span class='border border-gray-600'></span>
+      <div class='text-base text-justify text-gray-300 tracking-wide leading-relaxed'>
+        <p>{data.release_date}</p>
+      </div>
+    </div>
+    <!-- running time -->
+    <div class='grid grid-cols-1 movie_tag_description mb-2'>
+      <h2 class='text-2xl font-bold capitalize'>Duration:</h2>
+      <span class='border border-gray-600'></span>
+      <div class='text-base text-justify text-gray-300 tracking-wide leading-relaxed'>
+        <p>{data.running_time} min</p>
+      </div>
+    </div>
+    <!-- rating score -->
+    <div class='grid grid-cols-1 movie_tag_description mb-2'>
+      <h2 class='text-2xl font-bold capitalize'>Rating Score:</h2>
+      <span class='border border-gray-600'></span>
+      <div class='text-base text-justify text-gray-300 tracking-wide leading-relaxed'>
+        <p>{data.rt_score}/100</p>
+      </div>
+    </div>
+  </div>
+</>

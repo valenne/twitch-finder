@@ -1,29 +1,19 @@
 ---
-import type { GhibliProps } from '../types/api-props';
-
-type ItemProps = {
-  movie: GhibliProps;
-};
-
-const { movie } = Astro.props as ItemProps;
 ---
 
 <>
-  <li
-    id={movie.id}
-    class='w-full h-full block'>
+  <li class='w-full h-full block'>
     <div class='max-w-full max-h-full'>
       <p
         class='w-full text-center font-bold py-3 px-2 text-lg md:capitalize md:text-base whitespace-nowrap overflow-ellipsis overflow-hidden'>
-        {movie.title}
       </p>
       <a
         class='hover:scale-105 inline-block transition-all duration-300 ease-out hover:contrast-125 shadow-md'
-        href=`/${movie.title}`>
+        href=`/`>
         <img
           class='aspect-[600/900] max-w-full w-full object-cover rounded'
-          alt={`movie - ${movie.title}`}
-          src={movie.image}
+          alt={`movie-skeleton`}
+          src={'/'}
         />
       </a>
     </div>
