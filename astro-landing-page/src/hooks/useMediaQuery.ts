@@ -1,3 +1,7 @@
+type Query = {
+	mediaQuery: boolean;
+};
+
 export function getWindowSize() {
 	let currentWidth = 0;
 	let mediaQuery = false;

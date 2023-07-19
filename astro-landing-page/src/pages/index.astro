@@ -1,7 +1,8 @@
 ---
+import Intro from '../components/Intro.astro';
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
 <MainLayout title='Landing Page'>
-	<h1>Hello astro</h1>
+	<Intro client:load />
 </MainLayout>
