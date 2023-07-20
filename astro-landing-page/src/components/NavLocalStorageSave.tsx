@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { avatarUrl } from '../assets/images/images';
+import { imgs } from '../assets/images/imageExport';
 import { getWindowSize } from '../hooks/useMediaQuery';
 
 function Nav() {
@@ -28,7 +28,8 @@ function Nav() {
 				<div>
 					<img
 						className='rounded-full'
-						src={avatarUrl}
+						src={imgs.avatarPhoto.img}
+						alt={imgs.avatarPhoto.alt}
 						width={70}
 						height={70}
 					/>

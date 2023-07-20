@@ -1,13 +1,7 @@
 ---
 import brushPortrait from '../assets/images/brush-portrait.svg';
-import { portrait } from '../assets/images/images';
+import { imgs } from '../assets/images/imageExport';
 import './intro-draw-path.css';
-
-// creating a portrait object
-const portraitImg = {
-	img: portrait,
-	alt: 'Artist image portrait'
-};
 ---
 
 <div class='relative mx-12 flex flex-col place-items-center mb-12'>
@@ -40,26 +34,28 @@ const portraitImg = {
 				stroke-width='4'
 			></path>
 		</svg>
-		<p
-			id='anim-p'
-			class='p-6 text-lg'>
-			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi voluptates dolor eligendi.
-			Quidem porro, earum, deleniti repudiandae alias inventore quis voluptatum aspernatur veniam
-			perferendis eos nihil quaerat temporibus, rerum corporis!<br />
-			<br />
-			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis exercitationem odio a laborum
-			ad eum voluptatibus tenetur, doloremque accusantium incidunt impedit fugiat distinctio, quae nihil
-			nulla vel odit repellendus molestiae!
-			<br />
-			<br />
-			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem nihil inventore magnam
-			voluptatem nisi corrupti et alias? Expedita voluptate neque assumenda pariatur nostrum cupiditate
-			voluptatem vero voluptatibus, praesentium odit! Id?
-		</p>
+		<div class='text-justify mx-5'>
+			<p
+				id='anim-p'
+				class='p-6 text-lg'>
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi voluptates dolor eligendi.
+				Quidem porro, earum, deleniti repudiandae alias inventore quis voluptatum aspernatur veniam
+				perferendis eos nihil quaerat temporibus, rerum corporis!<br />
+				<br />
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis exercitationem odio a
+				laborum ad eum voluptatibus tenetur, doloremque accusantium incidunt impedit fugiat distinctio,
+				quae nihil nulla vel odit repellendus molestiae!
+				<br />
+				<br />
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem nihil inventore magnam
+				voluptatem nisi corrupti et alias? Expedita voluptate neque assumenda pariatur nostrum cupiditate
+				voluptatem vero voluptatibus, praesentium odit! Id?
+			</p>
+		</div>
 	</div>
 	<!-- footer section numbers -->
 	<div
-		class='flex place-items-center pt-12 text-center xl:gap-14 transition-all ease-in-out duration-150'>
+		class='flex place-items-center pt-12 text-center xl:gap-14 transition-all ease-in-out duration-150 z-10'>
 		<div class='w-32'>
 			<h2>Art Posts</h2>
 			<p
@@ -88,12 +84,12 @@ const portraitImg = {
 	<div class='relative my-4 max-w-xs xl:max-w-md transition-all ease-in-out duration-150'>
 		<img
 			class='h-full rounded-lg object-cover z-10'
-			src={portraitImg.img}
-			alt={portraitImg.alt}
+			src={imgs.heroPhoto.img}
+			alt={imgs.heroPhoto.alt}
 		/>
-		<div>
+		<div class='overflow-hidden'>
 			<img
-				class='absolute bottom-0 right-10 translate-y-1/4 translate-x-1/3 opacity-90 -rotate-45'
+				class='absolute bottom-0 left-0 translate-y-1/2 opacity-90'
 				src={brushPortrait}
 				alt='brush absolute in image'
 			/>

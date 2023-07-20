@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { avatarUrl } from '../assets/images/images';
+import valeAvatar from '../assets/images/vale.png';
 import { getWindowSize } from '../hooks/useMediaQuery';
 
 // motion config animated links
@@ -41,14 +41,14 @@ function Nav() {
 	}, [windowSize]);
 
 	return (
-		<nav className='relative mx-8 mb-24'>
+		<nav className='relative mx-12 mb-24'>
 			<div className='flex flex-row h-full justify-between items-center pt-12 pb-6 font-medium md:mx-16 lg:mx-32'>
 				{/* separator line */}
-				<span className='absolute bottom-0 left-1/2 -translate-x-1/2 w-[250px] h-[2px] bg-black'></span>
+				<span className='absolute bottom-0 left-1/2 -translate-x-1/2 w-[250px] h-[2px] bg-[#EAE6E5]'></span>
 				<div>
 					<img
-						className='rounded-full object-cover aspect-square border border-black '
-						src={avatarUrl}
+						className='rounded-full object-cover aspect-square border-2 border-[#EAE6E5] hover:border-t-[#3F6454] hover:border-r-[#5B9279] hover:border-b-[#8FCB9B] hover:border-l-[#EAE6E5] hover:border-2 transition-all duration-300 ease-in-out'
+						src={valeAvatar}
 						width={70}
 						height={70}
 					/>
@@ -58,34 +58,25 @@ function Nav() {
 				{windowSize.mediaQuery && (
 					<div className='flex items-center justify-between font-bold min-w-fit my-auto'>
 						<div className='flex flex-row gap-4'>
-							<div className='h-10 grid place-content-center'>
+							<div className='h-10 min-w-fit grid place-content-center'>
 								<a
-									className='text-lg font-bold hover:text-[#423040] transition-all duration-300 ease-in-out group'
+									className='relative text-lg font-bold before:absolute before:min-w-full before:bottom-0 before:border-[#3F6454] hover:before:border hover:before:border-[#3F6454] hover:before:transition-all hover:before:duration-300 hover:before:ease-in-out hover:before:animate-fade-up hover:before:animate-once hover:before:animate-duration-1000 hover:before:animate-delay-100 hover:before:animate-ease-in-out'
 									href='/'>
-									<span className='group-hover:text-[#c6614d] group-hover:text-xl transition-all duration-200 ease-in-out'>
-										H
-									</span>
-									ome
+									Home
 								</a>
 							</div>
 							<div className='h-10 grid place-content-center'>
 								<a
-									className='text-lg font-bold hover:text-[#423040] transition-all duration-300 ease-in-out group'
+									className='relative text-lg font-bold before:absolute before:min-w-full before:bottom-0 before:border-[#3F6454] hover:before:border hover:before:border-[#3F6454] hover:before:transition-all hover:before:duration-300 hover:before:ease-in-out hover:before:animate-fade-up hover:before:animate-once hover:before:animate-duration-1000 hover:before:animate-delay-100 hover:before:animate-ease-in-out'
 									href='/services'>
-									<span className='group-hover:text-[#c6614d] group-hover:text-xl transition-all duration-200 ease-in-out'>
-										S
-									</span>
-									ervices
+									Services
 								</a>
 							</div>
 							<div className='h-10 grid place-content-center'>
 								<a
-									className='text-lg font-bold hover:text-[#423040] transition-all duration-300 ease-in-out group'
+									className='relative text-lg font-bold before:absolute before:min-w-full before:bottom-0 before:border-[#3F6454] hover:before:border hover:before:border-[#3F6454] hover:before:transition-all hover:before:duration-300 hover:before:ease-in-out hover:before:animate-fade-up hover:before:animate-once hover:before:animate-duration-1000 hover:before:animate-delay-100 hover:before:animate-ease-in-out'
 									href='/contact'>
-									<span className='group-hover:text-[#c6614d] group-hover:text-xl transition-all duration-200 ease-in-out'>
-										C
-									</span>
-									ontact
+									Contact
 								</a>
 							</div>
 						</div>
@@ -95,11 +86,11 @@ function Nav() {
 				<div>
 					<h1 className='text-2xl font-bold group'>
 						<a href='/'>
-							<span className='group-hover:text-[#c7614d] duration-200 ease-in-out delay-0'>V</span>
-							<span className='group-hover:text-[#fca683] duration-200 ease-in-out delay-75'>
+							<span className='group-hover:text-[#3F6454] duration-200 ease-in-out delay-0'>V</span>
+							<span className='group-hover:text-[#5B9279] duration-200 ease-in-out delay-75'>
 								a
 							</span>
-							<span className='group-hover:text-[#757a73] duration-200 ease-in-out delay-100'>
+							<span className='group-hover:text-[#8FCB9B] duration-200 ease-in-out delay-100'>
 								l.
 							</span>
 						</a>
@@ -110,20 +101,20 @@ function Nav() {
 				{!windowSize?.mediaQuery && (
 					<div
 						onClick={() => setToggled((prevToggled) => !prevToggled)}
-						className='space-y-1.5 cursor-pointer z-50'>
+						className='space-y-1.5 cursor-pointer z-50 group'>
 						<motion.span
 							animate={{ rotateZ: toggled ? 45 : 0, y: toggled ? 8 : 0 }}
-							className='block h-0.5 w-8 bg-black'></motion.span>
+							className='block h-0.5 w-8 bg-[#EAE6E5] group-hover:bg-[#3F6454] duration-200 ease-in-out delay-0'></motion.span>
 						<motion.span
 							animate={{ width: toggled ? 0 : 24 }}
-							className='block h-0.5 w-6 bg-black'></motion.span>
+							className='block h-0.5 w-6 bg-[#EAE6E5] group-hover:bg-[#5B9279] duration-200 ease-in-out delay-75'></motion.span>
 						<motion.span
 							animate={{
 								rotateZ: toggled ? -45 : 0,
 								y: toggled ? -8 : 0,
 								width: toggled ? 32 : 16
 							}}
-							className='block h-0.5 w-4 bg-black'></motion.span>
+							className='block h-0.5 w-4 bg-[#EAE6E5] group-hover:bg-[#8FCB9B] duration-200 ease-in-out delay-100'></motion.span>
 					</div>
 				)}
 
@@ -132,7 +123,7 @@ function Nav() {
 					<motion.div
 						animate={{ opacity: 1, x: 0 }}
 						initial={{ opacity: 0, x: 25 }}
-						className='fixed flex bg-white bottom-0 left-0 w-full h-screen items-center justify-center font-bold z-10'>
+						className='fixed flex bg-[#12130F] bottom-0 left-0 w-full h-screen items-center justify-center font-bold z-10'>
 						<motion.div
 							className={`flex flex-col gap-12`}
 							variants={motionConfig.navMotion}
