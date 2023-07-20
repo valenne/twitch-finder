@@ -7,3 +7,14 @@
 		stroke-dashoffset: 0;
 	}
 }
+
+/* esto no va, era prueba de que el css toma el svg de mi html */
+svg {
+	position: absolute;
+	overflow: visible;
+
+	@media (width > 768px) {
+		height: max-content;
+		width: max-content;
+	}
+}
