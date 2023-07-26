@@ -1,0 +1,47 @@
+import { useState } from 'react';
+import { ContentCard } from './ContentCard';
+
+export function ContentSection() {
+	const [streamer, setStreamer] = useState<string>('');
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const dataFromForm = new FormData(e.target);
+		const { search } = Object.fromEntries(dataFromForm);
+		setStreamer(search as string);
+	};
+
+	return (
+		<section className='flex place-content-center mx-12 my-12'>
+			<div className='h-full'>
+				<h2 className='text-4xl mb-10'>
+					Find your <span className='inline-block font-bold text-[#BF92EF]'>Streamer</span>
+				</h2>
+				<div className='flex flex-col justify-center'>
+					<form onSubmit={(e) => handleSubmit(e)}>
+						<div className='flex flex-col gap-2 place-items-center'>
+							<label htmlFor='search'>Search 🔎</label>
+							<input
+								id='search'
+								className='w-fit px-3 py-2 text-[#0e0e10] font-bold text-base rounded outline-[#97419B]'
+								type='text'
+								name='search'
+								placeholder='Find your stremear'
+							/>
+						</div>
+						<div className='mt-5 mx-auto grid place-content-center'>
+							<button
+								className='block bg-[#97419B] text-white font-bold py-2 px-3 border-r-4 border-b-4 border-transparent hover:border-r-4 hover:border-b-4 hover:border-[#BF92EF] rounded transition-all duration-150 ease-in-out'
+								type='submit'>
+								Search
+							</button>
+						</div>
+					</form>
+				</div>
+				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+					{streamer ? <ContentCard name={streamer} /> : ''}
+				</div>
+			</div>
+		</section>
+	);
+}

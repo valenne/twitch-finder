@@ -1,8 +1,10 @@
 ---
-import Intro from '../components/Intro.astro';
+import { ContentSection } from '../components/section-content/ContentSection';
+import Intro from '../components/section-hero/Intro.astro';
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
 <MainLayout title='Landing Page'>
 	<Intro />
+	<ContentSection client:only />
 </MainLayout>

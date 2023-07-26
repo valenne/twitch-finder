@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { imgs } from '../assets/images/imageExport';
-import { getWindowSize } from '../hooks/useMediaQuery';
+import { imgs } from '../../assets/images/imageExport';
+import { getWindowSize } from '../../hooks/useMediaQuery';
 
 function Nav() {
 	const [toggled, setToggled] = useState(false);

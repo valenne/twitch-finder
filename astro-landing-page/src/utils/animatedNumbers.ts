@@ -1,5 +1,5 @@
 const counters = document.querySelectorAll('.value');
-const speed = 200;
+const speed = 300;
 
 counters.forEach((counter: HTMLParagraphElement) => {
 	const animate = () => {
@@ -9,7 +9,7 @@ counters.forEach((counter: HTMLParagraphElement) => {
 		const time = value / speed;
 		if (data < value) {
 			counter.innerText = Math.ceil(data + time).toString();
-			setTimeout(animate, 1);
+			setTimeout(animate, 50);
 		} else {
 			counter.innerText = value.toString();
 		}

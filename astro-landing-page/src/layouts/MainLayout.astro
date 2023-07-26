@@ -1,5 +1,5 @@
 ---
-import Nav from '../components/Nav';
+import Nav from '../components/section-nav/Nav';
 interface Props {
 	title: string;
 }
@@ -32,7 +32,7 @@ const { title } = Astro.props;
 		<meta title={title} />
 		<title>{title}</title>
 	</head>
-	<body class='bg-[#12130F] text-[#EAE6E5]'>
+	<body class='bg-[#0e0e10] text-[#dedee3]'>
 		<main>
 			<Nav client:only />
 			<slot />
