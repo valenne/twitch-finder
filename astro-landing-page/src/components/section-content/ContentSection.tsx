@@ -14,7 +14,7 @@ export function ContentSection() {
 	return (
 		<section className='flex place-content-center mx-12 my-12'>
 			<div className='h-full'>
-				<h2 className='text-4xl mb-10'>
+				<h2 className='text-4xl mb-10 text-center'>
 					Find your <span className='inline-block font-bold text-[#BF92EF]'>Streamer</span>
 				</h2>
 				<div className='flex flex-col justify-center'>
@@ -38,7 +38,7 @@ export function ContentSection() {
 						</div>
 					</form>
 				</div>
-				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+				<div className='flex place-content-center'>
 					{streamer ? <ContentCard name={streamer} /> : ''}
 				</div>
 			</div>
