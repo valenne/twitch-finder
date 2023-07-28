@@ -29,9 +29,9 @@ export function ContentSection() {
 								placeholder='Find your stremear'
 							/>
 						</div>
-						<div className='mt-5 mx-auto grid place-content-center'>
+						<div className='my-5 mx-auto grid place-content-center'>
 							<button
-								className='block bg-[#97419B] text-white font-bold py-2 px-3 border-r-4 border-b-4 border-transparent hover:border-r-4 hover:border-b-4 hover:border-[#BF92EF] rounded transition-all duration-150 ease-in-out'
+								className='block bg-[#97419B] text-white text-base font-bold py-2 px-3 shadow-[3px_3px_0px_0px_#97419B] hover:scale-95 hover:shadow-[3px_3px_0px_0px_#BF92EF] rounded transition-all duration-150 ease-in-out'
 								type='submit'>
 								Search
 							</button>

@@ -31,7 +31,7 @@ const useTwitchId = async (name: string) => {
 
 // TEST
 
-const useTwitchTest = async () => {
+const useTwitchGamesTop = async () => {
 	const API_URL = 'https://api.twitch.tv/helix/games/top';
 
 	const { Authorization, clientId } = await getTwitchAuthorization();
@@ -47,8 +47,8 @@ const useTwitchTest = async () => {
 	return data;
 };
 
-// get streamer by name or id
-const getStreamer = async (name: string) => {
+// get streamer live channel
+const getStreamerChannel = async (name: string) => {
 	const headers = await TwitchAuthorization();
 
 	const API_URL = `https://api.twitch.tv/helix/search/channels?query=${name}`;
@@ -58,4 +58,16 @@ const getStreamer = async (name: string) => {
 
 	return data;
 };
-export { getStreamer, useTwitchId, useTwitchTest };
+
+// get streamer description channel
+const getStreamerPerson = async (name: string) => {
+	const headers = await TwitchAuthorization();
+
+	const API_URL = `https://api.twitch.tv/helix/users?login=${name}`;
+
+	const response = await fetch(API_URL, { headers });
+	const data = await response.json();
+
+	return data;
+};
+export { getStreamerChannel, getStreamerPerson, useTwitchGamesTop, useTwitchId };

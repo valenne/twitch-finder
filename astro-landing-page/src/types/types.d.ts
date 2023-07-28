@@ -9,7 +9,7 @@ type TwitchAuthorization = {
 	token_type: string;
 };
 
-export type StreamerProps = {
+export type StreamerChannelProps = {
 	broadcaster_language: string;
 	broadcaster_login: string;
 	display_name: string;
@@ -21,7 +21,21 @@ export type StreamerProps = {
 	tags: string[];
 	thumbnail_url: string;
 	title: string;
-	started_at: Date;
+	started_at: Date | string;
 };
 
-export { ConfigCredentials, StreamerProps, TwitchAuthorization };
+export type PersonDescriptionProps = {
+	id: string;
+	login: string;
+	display_name: string;
+	type: string;
+	broadcaster_type: string;
+	description: string;
+	profile_image_url: string;
+	offline_image_url: string;
+	view_count: number;
+	email: string;
+	created_at: string;
+};
+
+export { ConfigCredentials, StreamerChannelProps, TwitchAuthorization };
