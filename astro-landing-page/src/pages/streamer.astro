@@ -1,0 +1,20 @@
+---
+import randomEmoji from 'random-unicode-emoji';
+import { TwitchStreamer } from '../components/section-streamer/TwitchStreamer';
+import Layout from '../layouts/MainLayout.astro';
+
+// url
+const rawUrl = Astro.url.search;
+const arrayUrl = rawUrl.replace('?', '').split('=');
+
+const dataStreamer = {
+	[arrayUrl[0]]: arrayUrl[1]
+};
+
+// randomEmoji
+const emoji = randomEmoji.random({ count: 1 });
+---
+
+<Layout title={`${dataStreamer.name} - ${emoji[0]}`}>
+	<TwitchStreamer client:only />
+</Layout>

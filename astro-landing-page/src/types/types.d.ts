@@ -9,7 +9,7 @@ type TwitchAuthorization = {
 	token_type: string;
 };
 
-export type StreamerChannelProps = {
+type StreamerChannelProps = {
 	broadcaster_language: string;
 	broadcaster_login: string;
 	display_name: string;
@@ -24,7 +24,7 @@ export type StreamerChannelProps = {
 	started_at: Date | string;
 };
 
-export type PersonDescriptionProps = {
+type PersonDescriptionProps = {
 	id: string;
 	login: string;
 	display_name: string;
@@ -38,4 +38,4 @@ export type PersonDescriptionProps = {
 	created_at: string;
 };
 
-export { ConfigCredentials, StreamerChannelProps, TwitchAuthorization };
+export { ConfigCredentials, PersonDescriptionProps, StreamerChannelProps, TwitchAuthorization };
