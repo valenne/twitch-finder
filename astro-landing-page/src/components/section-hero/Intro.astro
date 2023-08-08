@@ -1,114 +1,105 @@
 ---
-import { imgs } from '../../assets/images/imageExport';
+import TwitchAnimated from '../section-nav/TittleAnimation';
 import './intro-draw-path.css';
 ---
 
 <section class='relative mx-12 flex flex-col place-items-center mb-12'>
-	<h1 class='text-4xl text-center'>
-		Find your next favorite Twitch channel with <span class='block font-bold text-[#BF92EF]'
-			>Twitch Finder!</span
-		>
-	</h1>
+	<div>
+		<h2 class='text-4xl text-center font-bold'>
+			Find your next favorite Twitch channel with <span class='block font-bold text-[#BF92EF]'>
+			</span>
+			<div class='inline-block text-center group'>
+				<TwitchAnimated twClass='group-hover:text-[#e0d5b0]' />
+			</div>
+		</h2>
 
-	<div class='relative'>
-		<!-- svg linear -->
-		<svg class='absolute md:h-full md:w-full overflow-visible'>
-			<defs>
-				<linearGradient
-					id='gradient'
-					x1='0%'
-					y1='0%'
-					x2='100%'
-					y2='0%'>
-					<stop
-						offset='0%'
-						style={{ stopColor: '#97419B', stopOpacity: 1 }}
-					></stop>
-					<stop
-						offset='100%'
-						style={{ stopColor: '#dedee3', stopOpacity: 1 }}
-					></stop>
-				</linearGradient>
-			</defs>
-			<path
-				id='border-path'
-				fill='none'
-				stroke='url(#gradient)'
-				stroke-width='4'
-			></path>
-		</svg>
-		<div class='text-justify mx-5'>
-			<p
-				id='anim-p'
-				class='p-6 text-lg'>
-				Twitch Finder is the easiest way to discover new Twitch channels. Simply enter a game,
-				streamer name, or keyword, and we'll show you a list of channels that match your criteria.
-				You can also browse channels by category, game, or popularity.<br />
-				<br />
-				Once you've found a channel you're interested in, Twitch Finder provides you with all the information
-				you need to know, including the channel's bio, follower count, stream schedule, and more. You
-				can also watch live streams, clips, and highlights directly from the app.
-				<br />
-				<br />
-				So what are you waiting for? Download Twitch Finder today and start exploring the world of Twitch!
-			</p>
+		<div class='relative'>
+			<!-- svg linear -->
+			<svg class='absolute md:h-full md:w-full overflow-visible'>
+				<defs>
+					<linearGradient
+						id='gradient'
+						x1='0%'
+						y1='0%'
+						x2='100%'
+						y2='0%'>
+						<stop
+							offset='0%'
+							style={{ stopColor: '#97419B', stopOpacity: 1 }}
+						></stop>
+						<stop
+							offset='100%'
+							style={{ stopColor: '#dedee3', stopOpacity: 1 }}
+						></stop>
+					</linearGradient>
+				</defs>
+				<path
+					id='border-path'
+					fill='none'
+					stroke='url(#gradient)'
+					stroke-width='4'
+				></path>
+			</svg>
+			<div class='text-justify mx-5'>
+				<p
+					id='anim-p'
+					class='p-6 text-lg'>
+					Twitch Finder is the easiest way to discover new Twitch channels. Simply enter a game,
+					streamer name, or keyword, and we'll show you a list of channels that match your criteria.
+					You can also browse channels by category, game, or popularity.<br />
+					<br />
+					Once you've found a channel you're interested in, Twitch Finder provides you with all the information
+					you need to know, including the channel's bio, follower count, stream schedule, and more. You
+					can also watch live streams, clips, and highlights directly from the app.
+					<br />
+					<br />
+					So what are you waiting for? Download Twitch Finder today and start exploring the world of
+					Twitch!
+				</p>
+			</div>
+		</div>
+		<!-- footer section numbers -->
+		<div
+			id='featured_data'
+			class='flex place-items-center pt-12 text-center xl:gap-14 transition-all ease-in-out duration-150 z-10'>
+			<div class='w-32 grid justify-center place-items-center mx-auto'>
+				<h2>Channels</h2>
+				<div class='flex flex-row gap-1'>
+					<p
+						class='value text-xl font-bold'
+						data-finalValue='16'>
+						0
+					</p>
+					<span class='inline-block font-bold text-[#e0d5b0]'>M</span>
+				</div>
+			</div>
+			<div class='w-32 grid justify-center place-items-center mx-auto'>
+				<h2>Users</h2>
+				<div class='flex flex-row gap-1'>
+					<p
+						class='value text-xl font-bold'
+						data-finalValue='3.2'>
+						0
+					</p>
+					<span class='inline-block font-bold text-[#e0d5b0]'>M</span>
+				</div>
+			</div>
+			<div class='w-32 grid justify-center place-items-center mx-auto'>
+				<h2>Languages</h2>
+				<div class='flex flex-row gap-1'>
+					<p
+						class='value text-xl font-bold'
+						data-finalValue='20'>
+						0
+					</p>
+					<span class='inline-block font-bold text-[#e0d5b0]'>+</span>
+				</div>
+			</div>
 		</div>
 	</div>
-	<!-- footer section numbers -->
-	<div
-		id='featured_data'
-		class='flex place-items-center pt-12 text-center xl:gap-14 transition-all ease-in-out duration-150 z-10'>
-		<div class='w-32 grid justify-center place-items-center mx-auto'>
-			<h2>Channels</h2>
-			<div class='flex flex-row gap-1'>
-				<p
-					class='value text-xl font-bold'
-					data-finalValue='16'>
-					0
-				</p>
-				<span class='inline-block font-bold text-[#e0d5b0]'>M</span>
-			</div>
-		</div>
-		<div class='w-32 grid justify-center place-items-center mx-auto'>
-			<h2>Users</h2>
-			<div class='flex flex-row gap-1'>
-				<p
-					class='value text-xl font-bold'
-					data-finalValue='3.2'>
-					0
-				</p>
-				<span class='inline-block font-bold text-[#e0d5b0]'>M</span>
-			</div>
-		</div>
-		<div class='w-32 grid justify-center place-items-center mx-auto'>
-			<h2>Languages</h2>
-			<div class='flex flex-row gap-1'>
-				<p
-					class='value text-xl font-bold'
-					data-finalValue='20'>
-					0
-				</p>
-				<span class='inline-block font-bold text-[#e0d5b0]'>+</span>
-			</div>
-		</div>
-	</div>
-	<!-- <div class='relative my-4 max-w-xs xl:max-w-md transition-all ease-in-out duration-150'>
-		<img
-			class='h-full rounded-lg object-cover z-10'
-			src={imgs.heroPhoto.img}
-			alt={imgs.heroPhoto.alt}
-		/>
-		<div class='overflow-hidden'>
-			<img
-				class='absolute bottom-0 left-0 translate-y-1/2 opacity-90'
-				src={imgs.brush.img}
-				alt={imgs.brush.alt}
-			/>
-		</div>
-	</div> -->
+
+	<div class='mt-12 h-4 w-full bg-black'></div>
+
+	<script src='../../utils/drawingStroke.ts'></script>
+	<script src='../../utils/animatedNumbers.ts'></script>
 </section>
-
-<div class='mt-12 h-4 w-full bg-black'></div>
-
-<script src='../../utils/drawingStroke.ts'></script>
-<script src='../../utils/animatedNumbers.ts'></script>

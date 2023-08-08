@@ -11,5 +11,6 @@ export const API = {
 	FOLLOWERS_API: (id: string) =>
 		`https://api.twitch.tv/helix/channels/followers?broadcaster_id=${id}`,
 	EMOTES_API: (id: string) => `https://api.twitch.tv/helix/chat/emotes?broadcaster_id=${id}`,
-	BADGES_API: (id: string) => `https://api.twitch.tv/helix/chat/badges?broadcaster_id=${id}`
+	BADGES_API: (id: string) => `https://api.twitch.tv/helix/chat/badges?broadcaster_id=${id}`,
+	GAMES_API: (id: string) => `https://api.twitch.tv/helix/games?id=${id}`
 };

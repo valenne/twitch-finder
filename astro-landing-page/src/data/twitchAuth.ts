@@ -1,5 +1,5 @@
 import { config } from '../config/config';
-import type { TwitchAuthorization } from '../types/types.d.ts';
+import type { TwitchAuthorization } from '../types/types';
 
 const getTwitchAuthorization = async () => {
 	let url = `https://id.twitch.tv/oauth2/token?client_id=${config.clientId}&client_secret=${config.clientSecret}&grant_type=client_credentials`;
@@ -15,18 +15,4 @@ const getTwitchAuthorization = async () => {
 	};
 };
 
-// user id
-const twitchUserId = async (name: string, headers) => {
-	const userUrl = `https://api.twitch.tv/helix/users?login=${name}`;
-
-	const response = await fetch(userUrl, {
-		headers
-	});
-
-	const { data } = await response.json();
-	return {
-		id: data[0].id
-	};
-};
-
-export { getTwitchAuthorization, twitchUserId };
+export { getTwitchAuthorization };

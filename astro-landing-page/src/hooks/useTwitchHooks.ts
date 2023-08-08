@@ -1,5 +1,6 @@
 import { API } from '../config/config';
-import { getTwitchAuthorization, twitchUserId } from '../data/fetchingData';
+import { getTwitchAuthorization } from '../data/twitchAuth';
+import { dataFilteredFunction } from '../helpers/helpers';
 
 const TwitchAuthorization = async () => {
 	try {
@@ -12,177 +13,139 @@ const TwitchAuthorization = async () => {
 
 		return headers;
 	} catch (e) {
-		console.error(e.name);
+		console.error(e.message);
 	}
 };
 
-// streamer id
-const useTwitchId = async (name: string) => {
-	const { Authorization, clientId } = await getTwitchAuthorization();
-
-	const headers = {
-		Authorization,
-		'Client-id': clientId
-	};
-
-	const { id } = await twitchUserId(name, headers);
-
-	return id;
-};
-
-// TEST
-
-const useTwitchGamesTop = async () => {
-	const API_URL = 'https://api.twitch.tv/helix/games/top';
-
-	const { Authorization, clientId } = await getTwitchAuthorization();
-
-	const headers = {
-		Authorization,
-		'Client-id': clientId
-	};
-
-	const response = await fetch(API_URL, { headers });
-	const data = await response.json();
-
-	return data;
-};
-
-// get streamer live channel
-const getStreamerChannel = async (name: string) => {
-	const headers = await TwitchAuthorization();
-
-	const API_URL = `https://api.twitch.tv/helix/search/channels?query=${name}`;
-
-	const response = await fetch(API_URL, { headers });
-	const data = await response.json();
-
-	return data;
-};
-
-// get streamer description channel
-const getStreamerPerson = async (name: string) => {
-	const headers = await TwitchAuthorization();
-
-	const API_URL = `https://api.twitch.tv/helix/users?login=${name}`;
-
-	const response = await fetch(API_URL, { headers });
-	const data = await response.json();
-
-	return data;
-};
-
-// ++++++++++++++++++++++++++++++++++++++++++++++ //
+// Saved information from twitch API //
+// GET: Channel Information
 async function getChannel(name, headers) {
-	const response = await fetch(API.CHANNEL_API(name), { headers });
-	const { data } = await response.json();
-	const [result] = data.filter((item) => item.broadcaster_login === name);
+	try {
+		const response = await fetch(API.CHANNEL_API(name), { headers });
+		const { data } = await response.json();
+		const [result] = data.filter((item) => item.broadcaster_login === name);
 
-	const channelInformation = {
-		id: result.id,
-		broadcaster_language: result.broadcaster_language,
-		broadcaster_login: result.broadcaster_login,
-		display_name: result.display_name,
-		game_id: result.game_id,
-		game_name: result.game_name,
-		is_live: result.is_live,
-		started_at: result.started_at,
-		title: result.title,
-		thumbnail_url: result.thumbnail_url,
-		tags: result.tags
-	};
-	return channelInformation;
+		const channelInformation = {
+			id: result.id,
+			broadcaster_language: result.broadcaster_language,
+			game_id: result.game_id,
+			game_name: result.game_name,
+			is_live: result.is_live,
+			started_at: result.started_at,
+			title: result.title,
+			tags: result.tags
+		};
+		return channelInformation;
+	} catch (err) {
+		console.error(err.message);
+	}
 }
 
+// GET: Streamer Information
 async function getStreamer(name, headers) {
-	const response = await fetch(API.USER_API(name), { headers });
-	const { data } = await response.json();
-	const [result] = data.filter((item) => item.login === name);
-	const streamerInformation = {
-		broadcaster_type: result.broadcaster_type,
-		description: result.description,
-		offline_image_url: result.offline_image_url,
-		created_at: result.created_at
-	};
-	return streamerInformation;
+	try {
+		const response = await fetch(API.USER_API(name), { headers });
+		const { data } = await response.json();
+		const [result] = data.filter((item) => item.login === name);
+		const streamerInformation = {
+			id: result.id,
+			login_name: result.login,
+			display_name: result.display_name,
+			description: result.description,
+			broadcaster_type: result.broadcaster_type,
+			profile_image_url: result.profile_image_url,
+			offline_image_url: result.offline_image_url,
+			created_at: result.created_at,
+			email: result.email
+		};
+		return streamerInformation;
+	} catch (err) {
+		console.error(err.message);
+	}
 }
 
+// GET: Channel followers information
 async function getFollowers(id, headers) {
-	const response = await fetch(API.FOLLOWERS_API(id), { headers });
-	const data = await response.json();
+	try {
+		const response = await fetch(API.FOLLOWERS_API(id), { headers });
+		const data = await response.json();
 
-	const totalFollowers = {
-		followers: data.total
-	};
-	return totalFollowers;
+		const totalFollowers = {
+			followers: data.total
+		};
+		return totalFollowers;
+	} catch (err) {
+		console.error(err.message);
+	}
 }
 
+// GET: Channel emotes information
 async function getEmotes(id, headers) {
-	const response = await fetch(API.EMOTES_API(id), { headers });
-	const { data } = await response.json();
-	const emotesData = {
-		emotes: data,
-		quantity: data.length
-	};
-	return emotesData;
+	try {
+		const response = await fetch(API.EMOTES_API(id), { headers });
+		const { data } = await response.json();
+		const emotesData = {
+			emotes: data,
+			quantity: data.length
+		};
+		return emotesData;
+	} catch (err) {
+		console.error(err.message);
+	}
 }
 
+// GET: Channel badges information
 async function getBadges(id, headers) {
-	const response = await fetch(API.BADGES_API(id), { headers });
-	const { data } = await response.json();
+	try {
+		const response = await fetch(API.BADGES_API(id), { headers });
+		const { data } = await response.json();
 
-	const dataFilteredFunction = (item) => {
-		let helper = [];
+		const filteredBadges = data.filter((item) => dataFilteredFunction(item));
 
-		if (item.set_id === 'subscriber') {
-			helper.push(item);
-		}
-
-		if (helper.length === 0) {
-			return;
-		}
-
-		const [filter] = helper.map((obj) => {
-			return obj.versions.filter((item) => {
-				return parseInt(item.id) < 20;
-			});
+		filteredBadges[0].versions.sort((a, b) => {
+			return a.id - b.id;
 		});
 
-		helper[0].versions = filter;
-		return helper;
-	};
+		const badgesData = {
+			set_id: filteredBadges[0].set_id,
+			quantity: filteredBadges[0].versions.length,
+			data: filteredBadges[0].versions
+		};
 
-	const filteredBadges = data.filter((item) => dataFilteredFunction(item));
-
-	filteredBadges[0].versions.sort((a, b) => {
-		return a.id - b.id;
-	});
-
-	const badgesData = {
-		set_id: filteredBadges[0].set_id,
-		quantity: filteredBadges[0].versions.length,
-		data: filteredBadges[0].versions
-	};
-
-	return badgesData;
+		return badgesData;
+	} catch (err) {
+		console.error(err.message);
+	}
 }
 
+const getGames = async (id: string, headers) => {
+	try {
+		const response = await fetch(API.GAMES_API(id), { headers });
+		const { data } = await response.json();
+
+		return data;
+	} catch (err) {
+		console.error(err.message);
+	}
+};
+
 const getStreamerResources = async (name: string) => {
-	const headers = await TwitchAuthorization();
-	const channel = await getChannel(name, headers);
-	const { id } = channel;
-	const streamer = await getStreamer(name, headers);
-	const { followers } = await getFollowers(id, headers);
-	const { emotes } = await getEmotes(id, headers);
-	const badges = await getBadges(id, headers);
+	try {
+		const headers = await TwitchAuthorization();
+		const channel = await getChannel(name, headers);
+		const { id, game_id } = channel;
+		const streamer = await getStreamer(name, headers);
+		const { followers } = await getFollowers(id, headers);
+		const { emotes } = await getEmotes(id, headers);
+		const badges = await getBadges(id, headers);
+		const [games] = await getGames(game_id, headers);
 
-	return { channel, streamer, followers, emotes, badges };
+		console.log(channel);
+
+		return { channel, streamer, followers, emotes, badges, games };
+	} catch (err) {
+		console.error(err.message);
+	}
 };
 
-export {
-	getStreamerChannel,
-	getStreamerPerson,
-	getStreamerResources,
-	useTwitchGamesTop,
-	useTwitchId
-};
+export { getStreamerResources };

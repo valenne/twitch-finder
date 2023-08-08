@@ -4,6 +4,7 @@ export type TwitchProps = {
 	followers: number;
 	emotes: Emote[];
 	badges: Badges;
+	games: Games;
 };
 
 export type Badges = {
@@ -26,14 +27,11 @@ export type Datum = {
 export type Channel = {
 	id: string;
 	broadcaster_language: string;
-	broadcaster_login: string;
-	display_name: string;
 	game_id: string;
 	game_name: string;
 	is_live: boolean;
 	started_at: string;
 	title: string;
-	thumbnail_url: string;
 	tags: string[];
 };
 
@@ -69,8 +67,20 @@ export enum ThemeMode {
 }
 
 export type Streamer = {
-	broadcaster_type: string;
+	id: string;
+	login_name: string;
+	display_name: string;
 	description: string;
+	broadcaster_type: string;
+	profile_image_url: string;
 	offline_image_url: string;
-	created_at: Date;
+	created_at: string;
+	email: string;
+};
+
+export type Games = {
+	id: string;
+	name: string;
+	box_art_url: string;
+	igdb_id: string;
 };
