@@ -2,12 +2,23 @@ import {
   returningContrastCheckColors,
   stringToCapitalCase
 } from '../../helpers/helpers'
+import { useTwitchEmote } from '../../hooks/useTwitchEmote'
+import { useUrlGameFixed } from '../../hooks/useUrlGameFixed'
+import { CONSTANTS } from '../../types/constants'
 import { TwitchProps } from '../../types/types.twitch'
 import { IconPartner } from '../icons/IconPartner'
 
 export function TwitchStreamer () {
-  const { badges, channel, emotes, followers, streamer }: TwitchProps =
-    JSON.parse(window.localStorage.getItem('twitchInfo'))
+  const { badges, channel, emotes, followers, streamer, games }: TwitchProps =
+    JSON.parse(window.localStorage.getItem(CONSTANTS.LOCAL_STORAGE_KEY))
+  const { gameUrl } = useUrlGameFixed(games)
+  const test = useTwitchEmote({
+    emotes: emotes,
+    key: 'url_2x',
+    formatType: 'animated'
+  })
+
+  console.log(test)
 
   return (
     <section className='mx-16 md:mx-32 contrast-125 opacity-80 hover:opacity-100 hover:shadow-[5px_10px_30px_-5px_rgba(239,170,205,0.1)] transition-all duration-300 ease-in-out'>
@@ -19,9 +30,9 @@ export function TwitchStreamer () {
           </span>
         </div>
         <div className='grid w-full grid-cols-1 md:grid-cols-2 place-items-center'>
-          <picture className='block w-52 h-52 mb-4 border border-[#e0d5b0] rounded-md'>
+          <picture className='block w-52 h-52 mb-4 mx-auto'>
             <img
-              className='object-center mx-auto rounded-md'
+              className='object-center rounded-lg hover:translate-x-1 hover:-translate-y-1 duration-100 ease-linear border-l-4 border-b-4 border-transparent hover:border-[#97419B]'
               src={streamer.profile_image_url}
               alt='twitch profile image of the streamer'
             />
@@ -31,7 +42,7 @@ export function TwitchStreamer () {
               <div
                 key={ind}
                 role='tags_random_color'
-                className='block p-1 border rounded-md min-w-fit font-bold'
+                className='block p-1 border rounded-md min-w-fit font-bold hover:scale-95 duration-100 ease-linear'
                 style={{
                   backgroundColor: returningContrastCheckColors().bgColor,
                   color: returningContrastCheckColors().textColor
@@ -107,11 +118,52 @@ export function TwitchStreamer () {
               </div>
               <div className='flex flex-row gap-5 justify-normal'>
                 <label className='text-base font-bold min-w-fit'>
-                  → Email:
+                  → Followers:
                 </label>
                 <p className='text-[#dedee3]'>
-                  {streamer.email || 'User has not defined 🤷‍♂️'}
+                  {new Intl.NumberFormat()
+                    .format(followers)
+                    .replaceAll(',', '.')}{' '}
+                  pp
                 </p>
+              </div>
+            </div>
+            {/*Current Game description */}
+            <div className='current_game_description'>
+              <h3 className='mb-4 text-2xl text-center bold text-white'>
+                Current Game Description
+              </h3>
+              <div className='flex flex-row gap-5 justify-normal'>
+                <label className='text-base font-bold min-w-fit'>
+                  → Game Name:
+                </label>
+                <p className='text-[#dedee3]'>
+                  {stringToCapitalCase(games.name)}
+                </p>
+              </div>
+              <div className='flex flex-col gap-5 justify-normal'>
+                <label className='text-base font-bold min-w-fit'>
+                  → Game Picture:
+                </label>
+                <picture className='items-center mx-auto'>
+                  <img
+                    className='rounded-lg hover:translate-x-1 hover:-translate-y-1 duration-100 ease-linear border-l-4 border-b-4 border-transparent hover:border-[#97419B]'
+                    src={gameUrl}
+                    alt={`show a img of ${games.name} game`}
+                  />
+                </picture>
+              </div>
+            </div>
+            <div className='emotes_description'>
+              <h3 className='mb-4 text-2xl text-center bold text-white'>
+                Channel Emotes
+              </h3>
+
+              <div className='flex flex-col gap-5 justify-normal'>
+                <label className='text-base font-bold min-w-fit'>
+                  → Subscription Emotes:
+                </label>
+                <div></div>
               </div>
             </div>
           </div>

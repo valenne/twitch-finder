@@ -1,3 +1,5 @@
+import { Emote } from './types.twitch';
+
 type ConfigCredentials = {
 	clientId: string;
 	clientSecret: string;
@@ -9,4 +11,14 @@ type TwitchAuthorization = {
 	token_type: string;
 };
 
-export { ConfigCredentials, TwitchAuthorization };
+type ObjProps = {
+	[key: string]: string;
+};
+
+type ReturnEmoteProps = {
+	emotes: Emote[];
+	key: 'url_1x' | 'url_2x' | 'url_4x';
+	formatType: 'static' | 'animated';
+};
+
+export { ConfigCredentials, ReturnEmoteProps, TwitchAuthorization };

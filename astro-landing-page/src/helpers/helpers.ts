@@ -1,8 +1,13 @@
 // Helper function that returns a badges information sorted by filter
+
+import { CONSTANTS } from '../types/constants';
+import { ReturnEmoteProps } from '../types/types';
+
+/* ***** FILTER BADGES INFORMATION FROM TWITCH API ***** */
 export const dataFilteredFunction = (item) => {
 	let helper = [];
 
-	if (item.set_id === 'subscriber') {
+	if (item.set_id === CONSTANTS.BADGES_SET_ID) {
 		helper.push(item);
 	}
 
@@ -20,7 +25,7 @@ export const dataFilteredFunction = (item) => {
 	return helper;
 };
 
-// capital case string
+/* ***** CAPITALCASE ***** */
 export const stringToCapitalCase = (str: string) => {
 	const firstLetter = str.charAt(0);
 	const firstLetterCap = firstLetter.toUpperCase();
@@ -28,8 +33,7 @@ export const stringToCapitalCase = (str: string) => {
 	return firstLetterCap + restOfLetters;
 };
 
-// define the color according to text and bg color
-// random color
+/* ***** RANDOM COLOR ACCORDING TO BG AND TEXT COLOT ***** */
 export const randomColor = () => {
 	let bgColor = Math.floor(Math.random() * 16777215).toString(16);
 
@@ -41,12 +45,13 @@ export function invertHex() {
 	const hexColor = randomColor();
 
 	console.log(parseInt(hexColor, 16), 0xffffff / 2);
-	const textColor = parseInt(hexColor, 16) > 0xffffff / 2 ? 'black' : 'white';
+	const textColor =
+		parseInt(hexColor, 16) > 0xffffff / 2
+			? CONSTANTS.RANDOM_COLOR_BLACK
+			: CONSTANTS.RANDOM_COLOR_WHITE;
 
 	return { bgColor: `#${hexColor}`, textColor };
 }
-
-// try this shit
 
 function hexToRGB(colorValue) {
 	const red = parseInt(colorValue.substring(1, 3), 16);
@@ -70,7 +75,6 @@ export let returningContrastCheckColors = () => {
 	const bgColorHex = `#${randomColor()}`;
 	const bgColorRGB = hexToRGB(bgColorHex);
 
-	console.log({ textColorRGB, bgColorRGB });
 	// calculate luminance
 	const luminance1 = getRelativeLuminance(textColorRGB);
 	const luminance2 = getRelativeLuminance(bgColorRGB);
@@ -79,39 +83,75 @@ export let returningContrastCheckColors = () => {
 	// calculate numerical contrast
 	const contrast = (light + 0.05) / (dark + 0.05);
 
-	console.log(contrast);
-
-	return { bgColor: bgColorHex, textColor: contrast > 6 ? textColorHex : 'black' };
+	return {
+		bgColor: bgColorHex,
+		textColor: contrast > 6 ? textColorHex : CONSTANTS.RANDOM_COLOR_BLACK
+	};
 };
 
-// timeAgo
-const DATE_UNITS: Record<string, number> = {
-	year: 315360000,
-	month: 2629800,
-	day: 86400,
-	hour: 3600,
-	minute: 60,
-	second: 1
-} as const;
+/* ***** ROUNDED FOLLOWERS ***** */
 
-const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+export const roundedFollowers = (followers) => {
+	if (followers <= 0) {
+		return '0';
+	}
 
-export const getRelativeTime = (zoneTime: string) => {
-	const epochTime = Date.parse(zoneTime);
-	const started = new Date(epochTime).getTime();
+	if (followers >= 1_000) {
+		if (followers >= 1_000_000) {
+			return `${Math.round(followers / 1_000_000)}M`;
+		}
+		return `${Math.round(followers / 1_000)}K`;
+	}
+};
+
+/* ***** TIME AGO ***** */
+export function relativeTime(date: string, lang: string): string {
+	interface DateUnitsTypes {
+		[key: string]: number;
+	}
+
+	const DATE_UNITS: DateUnitsTypes = {
+		year: 3.154e7,
+		month: 2.628e6,
+		day: 86400,
+		hours: 3600,
+		minute: 60,
+		second: 1
+	};
+
+	const rtf = new Intl.RelativeTimeFormat(lang, { numeric: 'auto' });
+	const timeStart = new Date(date).getTime();
 	const now = new Date().getTime();
 
-	const elapsed = (started - now) / 1000;
+	const elapsedTime = (timeStart - now) / 1000;
 
 	for (const unit in DATE_UNITS) {
-		const absoluteElapsed = Math.abs(elapsed);
+		const absolutedElapsed = Math.abs(elapsedTime);
 
-		if (absoluteElapsed > DATE_UNITS[unit] || unit === 'second') {
+		if (absolutedElapsed > DATE_UNITS[unit] || unit === 'second') {
 			return rtf.format(
-				Math.round(elapsed / DATE_UNITS[unit]),
+				Math.round(elapsedTime / DATE_UNITS[unit]),
 				unit as Intl.RelativeTimeFormatUnit
 			);
 		}
 	}
+
 	return '';
-};
+}
+/* ***** modified the url  ***** */
+export function returnUrlEmoteByFormat({ obj, key, format }: ReturnEmoteProps): string {
+	if (format === 'static') {
+		return obj[key];
+	}
+
+	if (format.includes(format)) {
+		let urlToArray = obj[key].split('/');
+		let index = urlToArray.indexOf('static');
+
+		urlToArray[index] = format;
+
+		return urlToArray.join('/');
+	}
+
+	return obj[key];
+}

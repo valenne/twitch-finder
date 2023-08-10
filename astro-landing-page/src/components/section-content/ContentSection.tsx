@@ -2,13 +2,16 @@ import { useState } from 'react'
 import { ContentCard } from './ContentCard'
 
 export function ContentSection () {
-  const [streamer, setStreamer] = useState<string>('')
+  const [name, setName] = useState<string>('')
 
   const handleSubmit = e => {
     e.preventDefault()
     const dataFromForm = new FormData(e.target)
     const { search } = Object.fromEntries(dataFromForm)
-    setStreamer(search as string)
+
+    const nameToLowerCase: string = (search as string).toLowerCase()
+
+    setName(nameToLowerCase as string)
   }
 
   return (
@@ -43,7 +46,7 @@ export function ContentSection () {
           </form>
         </div>
         <div className='flex place-content-center'>
-          {streamer ? <ContentCard name={streamer} /> : ''}
+          {name ? <ContentCard name={name} /> : ''}
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getStreamerResources } from '../../hooks/useTwitchHooks'
+import { CONSTANTS } from '../../types/constants'
 import { TwitchProps } from '../../types/types.twitch'
 import { CardStreamer } from '../section-streamer/CardStreamer'
 
@@ -13,7 +14,7 @@ export function ContentCard ({ name }: Props): React.FunctionComponent {
   useEffect(() => {
     setTwitchData(null)
     // onReload delete information
-    localStorage.removeItem('twitchInfo')
+    localStorage.removeItem('')
 
     if (!name) {
       return
@@ -24,7 +25,7 @@ export function ContentCard ({ name }: Props): React.FunctionComponent {
 
       setTwitchData(twitch)
       // save information in the localStorage
-      localStorage.setItem('twitchInfo', JSON.stringify(twitch))
+      localStorage.setItem(CONSTANTS.LOCAL_STORAGE_KEY, JSON.stringify(twitch))
     })
   }, [name])
 

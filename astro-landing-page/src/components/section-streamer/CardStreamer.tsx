@@ -1,4 +1,4 @@
-import { getRelativeTime } from '../../helpers/helpers.js'
+import { relativeTime, roundedFollowers } from '../../helpers/helpers.js'
 import { TwitchProps } from '../../types/types.twitch.js'
 
 type CardProps = {
@@ -41,9 +41,14 @@ export function CardStreamer ({ twitch }: CardProps) {
                   {twitch.streamer.display_name}
                 </h2>
 
-                <span className='block text-[#aeaaa8]'>
-                  Followers: {twitch.followers}
-                </span>
+                <div className='relative group/followers'>
+                  <span className='block text-[#aeaaa8]'>
+                    Followers: {roundedFollowers(twitch.followers)}
+                  </span>
+                  <span className='absolute mx-auto -top-10 translate-x-1/2 p-2 rounded-lg opacity-0 group-hover/followers:opacity-100 duration-200 bg-[#0e0e10] text-[#e0d5b0]'>
+                    {twitch.followers}
+                  </span>
+                </div>
               </div>
 
               <span className='block mt-2 text-[#aeaaa8]'>
@@ -63,7 +68,7 @@ export function CardStreamer ({ twitch }: CardProps) {
                 }`}
               >
                 {twitch.channel?.started_at
-                  ? ` ${getRelativeTime(twitch.channel.started_at)}`
+                  ? ` ${relativeTime(twitch.channel?.started_at, 'en')}`
                   : ' Offline'}
               </span>
             </p>
