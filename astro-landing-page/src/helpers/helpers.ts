@@ -1,7 +1,6 @@
 // Helper function that returns a badges information sorted by filter
 
 import { CONSTANTS } from '../types/constants';
-import { ReturnEmoteProps } from '../types/types';
 
 /* ***** FILTER BADGES INFORMATION FROM TWITCH API ***** */
 export const dataFilteredFunction = (item) => {
@@ -137,21 +136,4 @@ export function relativeTime(date: string, lang: string): string {
 	}
 
 	return '';
-}
-/* ***** modified the url  ***** */
-export function returnUrlEmoteByFormat({ obj, key, format }: ReturnEmoteProps): string {
-	if (format === 'static') {
-		return obj[key];
-	}
-
-	if (format.includes(format)) {
-		let urlToArray = obj[key].split('/');
-		let index = urlToArray.indexOf('static');
-
-		urlToArray[index] = format;
-
-		return urlToArray.join('/');
-	}
-
-	return obj[key];
 }

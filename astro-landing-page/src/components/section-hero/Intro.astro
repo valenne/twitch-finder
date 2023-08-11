@@ -3,9 +3,9 @@ import TwitchAnimated from '../section-nav/TittleAnimation';
 import './intro-draw-path.css';
 ---
 
-<section class='relative mx-12 flex flex-col place-items-center mb-12'>
+<section class='relative flex flex-col mx-12 mb-12 place-items-center'>
 	<div>
-		<h2 class='text-4xl text-center font-bold'>
+		<h2 class='text-4xl font-bold text-center'>
 			Find your next favorite Twitch channel with <span class='block font-bold text-[#BF92EF]'>
 			</span>
 			<div class='inline-block text-center group'>
@@ -15,7 +15,7 @@ import './intro-draw-path.css';
 
 		<div class='relative'>
 			<!-- svg linear -->
-			<svg class='absolute md:h-full md:w-full overflow-visible'>
+			<svg class='absolute overflow-visible md:h-full md:w-full'>
 				<defs>
 					<linearGradient
 						id='gradient'
@@ -40,7 +40,7 @@ import './intro-draw-path.css';
 					stroke-width='4'
 				></path>
 			</svg>
-			<div class='text-justify mx-5'>
+			<div class='mx-5 text-justify'>
 				<p
 					id='anim-p'
 					class='p-6 text-lg'>
@@ -61,34 +61,34 @@ import './intro-draw-path.css';
 		<!-- footer section numbers -->
 		<div
 			id='featured_data'
-			class='flex place-items-center pt-12 text-center xl:gap-14 transition-all ease-in-out duration-150 z-10'>
-			<div class='w-32 grid justify-center place-items-center mx-auto'>
+			class='z-10 flex px-10 pt-12 text-center transition-all duration-150 ease-in-out place-items-center xl:gap-14'>
+			<div class='grid justify-center w-32 mx-auto place-items-center'>
 				<h2>Channels</h2>
 				<div class='flex flex-row gap-1'>
 					<p
-						class='value text-xl font-bold'
+						class='text-xl font-bold value'
 						data-finalValue='16'>
 						0
 					</p>
 					<span class='inline-block font-bold text-[#e0d5b0]'>M</span>
 				</div>
 			</div>
-			<div class='w-32 grid justify-center place-items-center mx-auto'>
+			<div class='grid justify-center w-32 mx-auto place-items-center'>
 				<h2>Users</h2>
 				<div class='flex flex-row gap-1'>
 					<p
-						class='value text-xl font-bold'
+						class='text-xl font-bold value'
 						data-finalValue='3.2'>
 						0
 					</p>
 					<span class='inline-block font-bold text-[#e0d5b0]'>M</span>
 				</div>
 			</div>
-			<div class='w-32 grid justify-center place-items-center mx-auto'>
+			<div class='grid justify-center w-32 mx-auto place-items-center'>
 				<h2>Languages</h2>
 				<div class='flex flex-row gap-1'>
 					<p
-						class='value text-xl font-bold'
+						class='text-xl font-bold value'
 						data-finalValue='20'>
 						0
 					</p>
@@ -98,7 +98,7 @@ import './intro-draw-path.css';
 		</div>
 	</div>
 
-	<div class='mt-12 h-4 w-full bg-black'></div>
+	<div class='w-full h-4 mt-12 bg-black'></div>
 
 	<script src='../../utils/drawingStroke.ts'></script>
 	<script src='../../utils/animatedNumbers.ts'></script>

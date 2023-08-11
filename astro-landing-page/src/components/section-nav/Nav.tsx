@@ -43,7 +43,7 @@ function Nav () {
 
   return (
     <nav className='sticky top-0 mb-24 bg-[#0e0e10] z-50 w-full mx-auto'>
-      <div className='flex flex-row h-full justify-between items-center pt-12 pb-6 font-medium mx-12 md:mx-16 lg:mx-32'>
+      <div className='flex flex-row items-center justify-between h-full pt-12 pb-6 mx-12 font-medium md:mx-16 lg:mx-32'>
         {/* separator line */}
         <span className='absolute bottom-0 left-1/2 -translate-x-1/2 w-[250px] h-[2px] bg-[#97419B]'></span>
         <div>
@@ -58,9 +58,9 @@ function Nav () {
 
         {/* cuando alcanza los 1280px de width, aparece la navegacion basado en flex flex-row */}
         {windowSize.mediaQuery && (
-          <div className='flex items-center justify-between font-bold min-w-fit my-auto'>
+          <div className='flex items-center justify-between my-auto font-bold min-w-fit'>
             <div className='flex flex-row gap-4'>
-              <div className='h-10 min-w-fit grid place-content-center'>
+              <div className='grid h-10 min-w-fit place-content-center'>
                 <a
                   className='relative text-lg font-bold before:absolute before:min-w-full before:bottom-0 before:border-[#97419B] hover:before:border hover:before:border-[#97419B] hover:before:transition-all hover:before:duration-300 hover:before:ease-in-out hover:before:animate-fade-up hover:before:animate-once hover:before:animate-duration-1000 hover:before:animate-delay-100 hover:before:animate-ease-in-out'
                   href='/'
@@ -68,7 +68,7 @@ function Nav () {
                   Home
                 </a>
               </div>
-              <div className='h-10 grid place-content-center'>
+              <div className='grid h-10 place-content-center'>
                 <a
                   className='relative text-lg font-bold before:absolute before:min-w-full before:bottom-0 before:border-[#97419B] hover:before:border hover:before:border-[#97419B] hover:before:transition-all hover:before:duration-300 hover:before:ease-in-out hover:before:animate-fade-up hover:before:animate-once hover:before:animate-duration-1000 hover:before:animate-delay-100 hover:before:animate-ease-in-out'
                   href='/services'
@@ -76,7 +76,7 @@ function Nav () {
                   Services
                 </a>
               </div>
-              <div className='h-10 grid place-content-center'>
+              <div className='grid h-10 place-content-center'>
                 <a
                   className='relative text-lg font-bold before:absolute before:min-w-full before:bottom-0 before:border-[#97419B] hover:before:border hover:before:border-[#97419B] hover:before:transition-all hover:before:duration-300 hover:before:ease-in-out hover:before:animate-fade-up hover:before:animate-once hover:before:animate-duration-1000 hover:before:animate-delay-100 hover:before:animate-ease-in-out'
                   href='/contact'
@@ -102,11 +102,11 @@ function Nav () {
           >
             <motion.span
               animate={{ rotateZ: toggled ? 45 : 0, y: toggled ? 8 : 0 }}
-              className='block h-0.5 w-8 bg-[#dedee3] group-hover:bg-[#BF92EF] duration-200 ease-in-out delay-0'
+              className='block h-0.5 w-8 bg-[#dedee3] group-hover:bg-[#BF92EF] duration-100 ease-in-out delay-0 transition-all'
             ></motion.span>
             <motion.span
               animate={{ width: toggled ? 0 : 24 }}
-              className='block h-0.5 w-6 bg-[#dedee3] group-hover:bg-[#BF92EF] duration-200 ease-in-out delay-75'
+              className='block h-0.5 w-6 bg-[#dedee3] group-hover:bg-[#BF92EF] duration-100 ease-in-out delay-75 transition-all'
             ></motion.span>
             <motion.span
               animate={{
@@ -114,7 +114,7 @@ function Nav () {
                 y: toggled ? -8 : 0,
                 width: toggled ? 32 : 16
               }}
-              className='block h-0.5 w-4 bg-[#dedee3] group-hover:bg-[#BF92EF] duration-200 ease-in-out delay-100'
+              className='block h-0.5 w-4 bg-[#dedee3] group-hover:bg-[#BF92EF] duration-100 ease-in-out delay-100 transition-all'
             ></motion.span>
           </div>
         )}

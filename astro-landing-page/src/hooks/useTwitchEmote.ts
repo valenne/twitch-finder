@@ -3,6 +3,7 @@ import { ReturnEmoteProps } from '../types/types';
 
 export const useTwitchEmote = ({ emotes, key, formatType }: ReturnEmoteProps) => {
 	// return a array filtered by paramater type
+
 	const emoteFilteredByType = emotes.filter((emoteObj) => {
 		return emoteObj.emote_type === CONSTANTS.EMOTE_FILTER_BY_TYPE;
 	});

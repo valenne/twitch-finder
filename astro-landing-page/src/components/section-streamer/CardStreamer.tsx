@@ -1,5 +1,6 @@
 import { relativeTime, roundedFollowers } from '../../helpers/helpers.js'
 import { TwitchProps } from '../../types/types.twitch.js'
+import { IconLoading } from '../icons/IconLoading.js'
 
 type CardProps = {
   twitch: TwitchProps
@@ -71,7 +72,36 @@ export function CardStreamer ({ twitch }: CardProps) {
                   ? ` ${relativeTime(twitch.channel?.started_at, 'en')}`
                   : ' Offline'}
               </span>
+              <span>
+                on
+                <span
+                  className={`font-bold ${
+                    twitch.channel.is_live
+                      ? ' animate-pulse animate-infinite animate-ease-linear text-[#8FCB9B] w-fit h-fit'
+                      : 'font-normal text-[#aeaaa8]'
+                  }`}
+                >
+                  {` ${twitch.channel.game_name} `}
+                </span>
+                category
+              </span>
             </p>
+            {/* {twitch.channel.is_live ? (
+              <p>
+                Category:
+                <span
+                  className={`font-bold ${
+                    twitch.channel.is_live
+                      ? ' animate-pulse animate-infinite animate-ease-linear text-[#8FCB9B] w-fit h-fit'
+                      : 'font-normal text-[#aeaaa8]'
+                  }`}
+                >
+                  {` ${twitch.channel.game_name}`}
+                </span>
+              </p>
+            ) : (
+              ''
+            )} */}
           </div>
 
           <div className='flex justify-end mt-4'>
@@ -94,8 +124,10 @@ export function CardStreamer ({ twitch }: CardProps) {
           </div>
         </div>
       ) : (
-        <div className='mt-5'>
-          <p className='text-2xl text-center'>Loading...</p>
+        <div className=''>
+          <div className='text-center'>
+            <IconLoading twClass='animate-spin text-[#e0d5b0] stroke-2 h-10 w-10' />
+          </div>
         </div>
       )}
     </div>
