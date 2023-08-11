@@ -1,7 +1,7 @@
 import { CONSTANTS } from '../types/constants';
 import { ReturnEmoteProps } from '../types/types';
 
-export const useTwitchEmote = ({ emotes, key, formatType }: ReturnEmoteProps) => {
+export function useTwitchEmote({ emotes, key, formatType }: ReturnEmoteProps) {
 	// return a array filtered by paramater type
 
 	const emoteFilteredByType = emotes.filter((emoteObj) => {
@@ -42,4 +42,4 @@ export const useTwitchEmote = ({ emotes, key, formatType }: ReturnEmoteProps) =>
 			theme_mode: emote.theme_mode
 		};
 	});
-};
+}

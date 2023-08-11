@@ -2,7 +2,7 @@ import { API } from '../config/config';
 import { getTwitchAuthorization } from '../data/twitchAuth';
 import { dataFilteredFunction } from '../helpers/helpers';
 
-const TwitchAuthorization = async () => {
+async function TwitchAuthorization() {
 	try {
 		const { Authorization, clientId } = await getTwitchAuthorization();
 
@@ -15,7 +15,7 @@ const TwitchAuthorization = async () => {
 	} catch (e) {
 		console.error(e.message);
 	}
-};
+}
 
 // Saved information from twitch API //
 // GET: Channel Information
@@ -118,7 +118,7 @@ async function getBadges(id, headers) {
 	}
 }
 
-const getGames = async (id: string, headers) => {
+async function getGames(id: string, headers) {
 	try {
 		const response = await fetch(API.GAMES_API(id), { headers });
 		const { data } = await response.json();
@@ -127,9 +127,9 @@ const getGames = async (id: string, headers) => {
 	} catch (err) {
 		console.error(err.message);
 	}
-};
+}
 
-const getStreamerResources = async (name: string) => {
+export async function getStreamerResources(name: string) {
 	try {
 		const headers = await TwitchAuthorization();
 		const channel = await getChannel(name, headers);
@@ -140,12 +140,8 @@ const getStreamerResources = async (name: string) => {
 		const badges = await getBadges(id, headers);
 		const [games] = await getGames(game_id, headers);
 
-		console.log(channel);
-
 		return { channel, streamer, followers, emotes, badges, games };
 	} catch (err) {
 		console.error(err.message);
 	}
-};
-
-export { getStreamerResources };
+}

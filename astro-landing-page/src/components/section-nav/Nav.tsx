@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { avatarImg } from '../../assets/images/imageExport'
-import { getWindowSize } from '../../hooks/useMediaQuery'
-import TittleAnimation from './TittleAnimation'
+import { getWindowSize } from '../../hooks/hooksExporter'
+import { TittleAnimation } from './TittleAnimation'
 
 // motion config animated links
 

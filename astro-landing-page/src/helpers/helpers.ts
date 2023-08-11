@@ -3,7 +3,7 @@
 import { CONSTANTS } from '../types/constants';
 
 /* ***** FILTER BADGES INFORMATION FROM TWITCH API ***** */
-export const dataFilteredFunction = (item) => {
+export function dataFilteredFunction(item) {
 	let helper = [];
 
 	if (item.set_id === CONSTANTS.BADGES_SET_ID) {
@@ -22,34 +22,22 @@ export const dataFilteredFunction = (item) => {
 
 	helper[0].versions = filter;
 	return helper;
-};
+}
 
 /* ***** CAPITALCASE ***** */
-export const stringToCapitalCase = (str: string) => {
+export function stringToCapitalCase(str: string) {
 	const firstLetter = str.charAt(0);
 	const firstLetterCap = firstLetter.toUpperCase();
 	const restOfLetters = str.slice(1);
 	return firstLetterCap + restOfLetters;
-};
+}
 
 /* ***** RANDOM COLOR ACCORDING TO BG AND TEXT COLOT ***** */
-export const randomColor = () => {
+function randomColor() {
 	let bgColor = Math.floor(Math.random() * 16777215).toString(16);
 
 	bgColor = ('000000' + bgColor).slice(-6);
 	return bgColor;
-};
-
-export function invertHex() {
-	const hexColor = randomColor();
-
-	console.log(parseInt(hexColor, 16), 0xffffff / 2);
-	const textColor =
-		parseInt(hexColor, 16) > 0xffffff / 2
-			? CONSTANTS.RANDOM_COLOR_BLACK
-			: CONSTANTS.RANDOM_COLOR_WHITE;
-
-	return { bgColor: `#${hexColor}`, textColor };
 }
 
 function hexToRGB(colorValue) {
@@ -59,15 +47,15 @@ function hexToRGB(colorValue) {
 	return [red, green, blue];
 }
 
-let getRelativeLuminance = (color) => {
+function getRelativeLuminance(color) {
 	const sRGB = color.map((val) => {
 		const s = val / 255;
 		return s < 0.03928 ? s / 12 / 92 : Math.pow((s + 0.055) / 1.055, 2.4);
 	});
 	return 0.2126 * sRGB[0] + 0.7152 * sRGB[1] + 0.0722 * sRGB[2];
-};
+}
 
-export let returningContrastCheckColors = () => {
+export function returningContrastCheckColors() {
 	// pick random color
 	const textColorHex = `#${randomColor()}`;
 	const textColorRGB = hexToRGB(textColorHex);
@@ -86,11 +74,11 @@ export let returningContrastCheckColors = () => {
 		bgColor: bgColorHex,
 		textColor: contrast > 6 ? textColorHex : CONSTANTS.RANDOM_COLOR_BLACK
 	};
-};
+}
 
 /* ***** ROUNDED FOLLOWERS ***** */
 
-export const roundedFollowers = (followers) => {
+export function roundedFollowers(followers) {
 	if (followers <= 0) {
 		return '0';
 	}
@@ -101,7 +89,7 @@ export const roundedFollowers = (followers) => {
 		}
 		return `${Math.round(followers / 1_000)}K`;
 	}
-};
+}
 
 /* ***** TIME AGO ***** */
 export function relativeTime(date: string, lang: string): string {
@@ -136,4 +124,11 @@ export function relativeTime(date: string, lang: string): string {
 	}
 
 	return '';
+}
+
+/* ***** RESPONSE WITH A DISPLAY LANGUAGE NAME ***** */
+
+export function languageNames(abrev: string) {
+	const abbreviationToLanguagename = new Intl.DisplayNames(['en'], { type: 'language' });
+	return abbreviationToLanguagename.of(abrev);
 }

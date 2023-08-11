@@ -4,7 +4,7 @@ type TwitchFinderProps = {
   twClass: string
 }
 
-function TittleAnimation ({ twClass }: TwitchFinderProps) {
+export function TittleAnimation ({ twClass }: TwitchFinderProps) {
   return (
     <>
       <a href='/'>
@@ -35,5 +35,3 @@ function TittleAnimation ({ twClass }: TwitchFinderProps) {
     </>
   )
 }
-
-export default TittleAnimation

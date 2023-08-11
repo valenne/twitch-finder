@@ -1,13 +1,11 @@
 import {
+  languageNames,
   returningContrastCheckColors,
   stringToCapitalCase
 } from '../../helpers/helpers'
-import { useTwitchEmote } from '../../hooks/useTwitchEmote'
-import { useUrlGameFixed } from '../../hooks/useUrlGameFixed'
-import { CONSTANTS } from '../../types/constants'
-import { TwitchProps } from '../../types/types.twitch'
-import { IconLoading } from '../icons/IconLoading'
-import { IconPartner } from '../icons/IconPartner'
+import { useTwitchEmote, useUrlGameFixed } from '../../hooks/hooksExporter'
+import { CONSTANTS, TwitchProps } from '../../types/typesExporter'
+import { IconLoading, IconPartner } from '../icons/iconExporter'
 
 export function TwitchStreamer () {
   const { badges, channel, emotes, followers, streamer, games }: TwitchProps =
@@ -18,7 +16,6 @@ export function TwitchStreamer () {
     key: 'url_2x',
     formatType: 'animated'
   })
-  console.log(badges)
 
   return (
     <section className='max-w-md md:max-w-lg lg:max-w-3xl mx-auto contrast-125 opacity-80 hover:opacity-100 hover:shadow-[5px_10px_30px_-5px_rgba(239,170,205,0.1)] transition-all duration-300 ease-in-out mb-20'>
@@ -52,8 +49,9 @@ export function TwitchStreamer () {
               </div>
             ))}
           </div>
+          {/* twitch live video */}
           {channel.is_live ? (
-            <div className='p-4 '>
+            <div className=' p-5 bg-[#1f1f23] rounded-lg'>
               <iframe
                 src={`https://player.twitch.tv/?channel=${streamer.login_name}&parent=localhost`}
                 width='400'
@@ -112,7 +110,9 @@ export function TwitchStreamer () {
                   → Main Language:
                 </label>
                 <p className='text-[#dedee3]'>
-                  {stringToCapitalCase(channel.broadcaster_language)}
+                  {languageNames(
+                    stringToCapitalCase(channel.broadcaster_language)
+                  )}
                 </p>
               </div>
               <div className='flex flex-row gap-5 mb-5 justify-normal lg:gap-2 lg:flex-col lg:text-center'>
@@ -135,7 +135,6 @@ export function TwitchStreamer () {
                   {new Intl.NumberFormat()
                     .format(followers)
                     .replaceAll(',', '.')}{' '}
-                  pp
                 </p>
               </div>
             </div>
@@ -185,7 +184,7 @@ export function TwitchStreamer () {
                             className='transition-all duration-150 ease-linear rounded-full hover:scale-125'
                           />
                         </picture>
-                        <div className='absolute top-0 z-20 flex flex-col gap-2 mx-auto text-center transition-all duration-150 ease-linear bg-[#1f1f23] rounded-md opacity-0 min-w-fit group-hover:opacity-100'>
+                        <div className='absolute top-16 z-20 flex flex-col gap-2 mx-auto text-center transition-all duration-150 ease-linear bg-[#1f1f23] rounded-md opacity-0 min-w-fit group-hover:opacity-100'>
                           <p className='p-1 text-sm min-w-fit'>
                             {uniqueEmote.name}
                           </p>
@@ -207,6 +206,27 @@ export function TwitchStreamer () {
               <h3 className='mb-4 text-2xl text-center text-white bold'>
                 Channel Badges
               </h3>
+              <div className='flex flex-col gap-5 mb-5 justify-normal lg:text-center lg:gap-2'>
+                <label className='text-base font-bold min-w-fit'>
+                  → Subscription Badges:
+                </label>
+                <div className='flex flex-row flex-wrap justify-center gap-1 p-5 bg-[#1f1f23] rounded-lg border border-[#e0d5b0]'>
+                  {badges.data?.map(badge => (
+                    <div key={badge.id} className='relative group'>
+                      <picture className=' min-w-fit min-h-fit'>
+                        <img
+                          src={badge.image_url_2x}
+                          alt={badge.description}
+                          className='transition-all duration-150 ease-linear rounded-full hover:scale-125'
+                        />
+                      </picture>
+                      <div className='absolute top-10 z-20 flex flex-col gap-2 mx-auto text-center transition-all duration-150 ease-linear bg-[#1f1f23] rounded-md opacity-0 min-w-fit group-hover:opacity-100'>
+                        <p className='p-1 text-sm min-w-fit'>{badge.title}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

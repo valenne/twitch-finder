@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
-import { getStreamerResources } from '../../hooks/useTwitchHooks'
-import { CONSTANTS } from '../../types/constants'
-import { TwitchProps } from '../../types/types.twitch'
+import { getStreamerResources } from '../../hooks/hooksExporter'
+import { CONSTANTS, TwitchProps } from '../../types/typesExporter'
 import { CardStreamer } from '../section-streamer/CardStreamer'
 
 type Props = {
