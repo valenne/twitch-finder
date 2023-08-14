@@ -2,9 +2,10 @@ import { twMerge } from 'tailwind-merge'
 
 type TwitchFinderProps = {
   twClass: string
+  text?: string
 }
 
-export function TittleAnimation ({ twClass }: TwitchFinderProps) {
+export function TittleAnimation ({ twClass, text }: TwitchFinderProps) {
   return (
     <>
       <a href='/'>
@@ -29,7 +30,7 @@ export function TittleAnimation ({ twClass }: TwitchFinderProps) {
               h
             </span>
           </div>
-          <span className={twMerge(' text-[#dedee3] ]', twClass)}>Finder</span>
+          <span className={twMerge(' text-[#dedee3] ', twClass)}>Finder</span>
         </div>
       </a>
     </>

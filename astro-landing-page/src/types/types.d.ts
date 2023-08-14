@@ -1,4 +1,4 @@
-import { Emote } from './types.twitch';
+import { Emote } from './types_twitch';
 
 export type ConfigCredentials = {
 	clientId: string;

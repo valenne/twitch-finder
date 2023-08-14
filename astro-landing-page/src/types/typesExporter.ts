@@ -12,4 +12,4 @@ export type {
 	Streamer,
 	ThemeMode,
 	TwitchProps
-} from './types.twitch';
+} from './types_twitch';

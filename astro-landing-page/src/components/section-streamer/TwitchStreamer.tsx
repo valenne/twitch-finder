@@ -1,17 +1,18 @@
 import {
   languageNames,
+  returnDataEmoteByFormatType,
+  returnFixedTwitchGame,
   returningContrastCheckColors,
   stringToCapitalCase
-} from '../../helpers/helpers'
-import { useTwitchEmote, useUrlGameFixed } from '../../hooks/hooksExporter'
+} from '../../helper/helperExporter'
 import { CONSTANTS, TwitchProps } from '../../types/typesExporter'
 import { IconLoading, IconPartner } from '../icons/iconExporter'
 
 export function TwitchStreamer () {
   const { badges, channel, emotes, followers, streamer, games }: TwitchProps =
     JSON.parse(window.localStorage.getItem(CONSTANTS.LOCAL_STORAGE_KEY))
-  const { gameUrl } = useUrlGameFixed(games)
-  const emotesAfterModification = useTwitchEmote({
+  const { gameUrl } = returnFixedTwitchGame(games)
+  const emotesAfterModification = returnDataEmoteByFormatType({
     emotes: emotes,
     key: 'url_2x',
     formatType: 'animated'

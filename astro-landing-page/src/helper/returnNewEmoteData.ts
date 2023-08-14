@@ -1,7 +1,7 @@
 import { CONSTANTS } from '../types/constants';
 import { ReturnEmoteProps } from '../types/types';
 
-export function useTwitchEmote({ emotes, key, formatType }: ReturnEmoteProps) {
+export function returnDataEmoteByFormatType({ emotes, key, formatType }: ReturnEmoteProps) {
 	// return a array filtered by paramater type
 
 	const emoteFilteredByType = emotes.filter((emoteObj) => {

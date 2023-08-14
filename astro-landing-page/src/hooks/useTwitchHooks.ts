@@ -1,6 +1,6 @@
 import { API } from '../config/config';
 import { getTwitchAuthorization } from '../data/twitchAuth';
-import { dataFilteredFunction } from '../helpers/helpers';
+import { dataFilteredFunction } from '../helper/helpers';
 
 async function TwitchAuthorization() {
 	try {

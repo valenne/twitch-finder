@@ -1,4 +1,4 @@
-import avatarPhoto from './vale.png';
+import avatarPhoto from './avatar_img.png';
 
 export const avatarImg = {
 	img: avatarPhoto,

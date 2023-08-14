@@ -1,4 +1,4 @@
-import { relativeTime, roundedFollowers } from '../../helpers/helpers.js'
+import { relativeTime, roundedFollowers } from '../../helper/helpers.js'
 import { TwitchProps } from '../../types/typesExporter'
 import { IconLoading } from '../icons/iconExporter'
 
