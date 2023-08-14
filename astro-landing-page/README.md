@@ -95,3 +95,19 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## Images
+
+![input](image.png)
+![response](image-2.png)
+
+on click card, show you in a new page, information about the streamer, like:
+
+- Channel Description
+- Main Languages
+- Favorite Game
+- Last Title Stream
+- Followers
+- Channel Emotes
+- Channel Badges
+- etc
