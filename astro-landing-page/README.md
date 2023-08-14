@@ -1,8 +1,16 @@
 # Twitch Finder
 
+[![GitHub contributors](https://img.shields.io/github/contributors/Naereen/badges.svg)](https://GitHub.com/Naereen/badges/graphs/contributors/)
+
+## Technologies
+
+[![JavaScript](https://img.shields.io/badge/--F7DF1E?logo=javascript&logoColor=000)](https://www.javascript.com/)[![TypeScript](https://badgen.net/badge/icon/typescript?icon=typescript&label)](https://typescriptlang.org)[![Npm](https://badgen.net/badge/icon/npm?icon=npm&label)](https://https://npmjs.com/)
+
 ```
 git clone https://github.com/valenne/twitch-finder.git
 ```
+
+## Astro Website
 
 ![Astro](https://astro.build/)
 
