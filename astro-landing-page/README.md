@@ -4,11 +4,23 @@
 git clone https://github.com/valenne/twitch-finder.git
 ```
 
-[![Astro](https://astro.build/)
+![Astro](https://astro.build/)
 
-##
+## Description
 
 Twitch Finder is the easiest way to discover new Twitch channels. Simply enter a streamer name, or keyword, and we'll show you a information about your searching.
+
+## What you need?
+
+You need to get access to the twitch API, then saved the variables on the .env file, like this example:
+
+.env ⬇
+
+```
+PUBLIC_TWITCH_CLIENT_ID={here put your id client}
+PUBLIC_TWITCH_CLIENT_SECRET={here put your secret client }
+
+```
 
 ## 🚀 Project Structure
 
