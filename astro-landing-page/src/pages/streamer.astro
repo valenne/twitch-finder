@@ -13,6 +13,10 @@ const dataStreamer = {
 
 // randomEmoji
 const emoji = randomEmoji.random({ count: 1 });
+
+// const { badges, channel, emotes, followers, streamer, games }: TwitchProps = JSON.parse(
+// 	window.localStorage.getItem(CONSTANTS.LOCAL_STORAGE_KEY)
+// );
 ---
 
 <Layout title={`${dataStreamer.name} - ${emoji[0]}`}>

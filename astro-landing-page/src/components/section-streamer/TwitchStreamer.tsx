@@ -18,7 +18,7 @@ export function TwitchStreamer () {
   })
 
   return (
-    <section className='max-w-md md:max-w-lg lg:max-w-3xl mx-auto contrast-125 opacity-80 hover:opacity-100 hover:shadow-[5px_10px_30px_-5px_rgba(239,170,205,0.1)] transition-all duration-300 ease-in-out mb-20'>
+    <section className='max-w-md md:max-w-lg lg:max-w-3xl mx-auto contrast-125 opacity-80 hover:opacity-100  transition-all duration-300 ease-in-out mb-20'>
       <div className='p-8 rounded-lg bg-[#18181b] border border-[#1f1f23] flex flex-col justify-center'>
         <div className='flex flex-row justify-center gap-1 mb-6 align-middle place-items-center'>
           <h2 className='text-3xl w-fit'>{streamer.display_name}</h2>
