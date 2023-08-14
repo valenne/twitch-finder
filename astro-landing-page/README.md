@@ -1,4 +1,4 @@
-# Astro Starter Kit: Basics
+# Twitch Finder
 
 ```
 npm create astro@latest -- --template basics
