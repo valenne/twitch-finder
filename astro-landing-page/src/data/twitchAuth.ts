@@ -1,4 +1,4 @@
-import { config } from '../config/config';
+import { config } from '../config/environment-variables';
 import type { TwitchAuthorization } from '../types/types';
 
 export async function getTwitchAuthorization() {

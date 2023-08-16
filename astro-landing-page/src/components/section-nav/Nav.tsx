@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { avatarImg } from '../../assets/images/imageExport'
+import { avatarImg } from '../../assets/images/image_export'
 import { getWindowSize } from '../../hooks/hooksExporter'
 import { TittleAnimation } from './TittleAnimation'
 

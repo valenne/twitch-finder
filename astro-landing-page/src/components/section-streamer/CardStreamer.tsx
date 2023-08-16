@@ -1,6 +1,6 @@
 import { relativeTime, roundedFollowers } from '../../helper/helpers.js'
 import { TwitchProps } from '../../types/typesExporter'
-import { IconLoading } from '../icons/iconExporter'
+import { IconLoading } from '../icons/icon-exporter.js'
 
 type CardProps = {
   twitch: TwitchProps

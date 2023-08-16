@@ -56,7 +56,7 @@ Inside of your Astro project, you'll see the following folders and files:
 │   │   │  └──CardStreamer.tsx
 │   │   │  └──TwitchStreamer.tsx
 │   ├── config/
-│   │   └── config.ts
+│   │   └── [text]("./src/config/environment-variables.ts")
 │   └── data/
 │   │   └── twitchAuth.ts
 │   └── helper/

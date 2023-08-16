@@ -4,9 +4,9 @@ import {
   returnFixedTwitchGame,
   returningContrastCheckColors,
   stringToCapitalCase
-} from '../../helper/helperExporter'
+} from '../../helper/helper_exporter'
 import { CONSTANTS, TwitchProps } from '../../types/typesExporter'
-import { IconLoading, IconPartner } from '../icons/iconExporter'
+import { IconLoading, IconPartner } from '../icons/icon-exporter'
 
 export function TwitchStreamer () {
   const { badges, channel, emotes, followers, streamer, games }: TwitchProps =

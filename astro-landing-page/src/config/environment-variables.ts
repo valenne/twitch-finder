@@ -1,4 +1,4 @@
-import type { ConfigCredentials } from '../types/types.d.ts';
+import type { ConfigCredentials } from '../types/types.js';
 
 export const config: ConfigCredentials = {
 	clientId: import.meta.env.PUBLIC_TWITCH_CLIENT_ID,

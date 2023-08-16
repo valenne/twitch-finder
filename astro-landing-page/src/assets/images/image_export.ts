@@ -1,4 +1,4 @@
-import avatarPhoto from './avatar_img.png';
+import avatarPhoto from './avatar.png';
 
 export const avatarImg = {
 	img: avatarPhoto,

@@ -1,4 +1,4 @@
-import { API } from '../config/config';
+import { API } from '../config/environment-variables';
 import { getTwitchAuthorization } from '../data/twitchAuth';
 import { dataFilteredFunction } from '../helper/helpers';
 
@@ -135,6 +135,11 @@ export async function getStreamerResources(name: string) {
 		const channel = await getChannel(name, headers);
 		const { id, game_id } = channel;
 		const streamer = await getStreamer(name, headers);
+
+		if (!id) {
+			throw new Error('test error id');
+		}
+
 		const { followers } = await getFollowers(id, headers);
 		const { emotes } = await getEmotes(id, headers);
 		const badges = await getBadges(id, headers);
