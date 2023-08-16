@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CONSTANTS, TwitchProps } from '../types/typesExporter';
+import { CONSTANTS, TwitchProps } from '../types/types-exporter';
 import { getStreamerResources } from './useTwitchHooks';
 
 export function useTwitchApiData({ name }) {

@@ -4,8 +4,8 @@ import {
   returnFixedTwitchGame,
   returningContrastCheckColors,
   stringToCapitalCase
-} from '../../helper/helper_exporter'
-import { CONSTANTS, TwitchProps } from '../../types/typesExporter'
+} from '../../helper/helper-exporter'
+import { CONSTANTS, TwitchProps } from '../../types/types-exporter'
 import { IconLoading, IconPartner } from '../icons/icon-exporter'
 
 export function TwitchStreamer () {

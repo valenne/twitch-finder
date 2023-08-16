@@ -1,5 +1,5 @@
 import { API } from '../config/environment-variables';
-import { getTwitchAuthorization } from '../data/twitchAuth';
+import { getTwitchAuthorization } from '../data/twitch-auth';
 import { dataFilteredFunction } from '../helper/helpers';
 
 async function TwitchAuthorization() {

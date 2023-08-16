@@ -1,5 +1,5 @@
 export { CONSTANTS } from './constants';
-export type { ConfigCredentials, ReturnEmoteProps, TwitchAuthorization } from './types.d';
+export type { ConfigCredentials, ReturnEmoteProps, TwitchAuthorization } from './types';
 export type {
 	Badges,
 	Channel,
@@ -12,4 +12,4 @@ export type {
 	Streamer,
 	ThemeMode,
 	TwitchProps
-} from './types_twitch';
+} from './types-twitch';

@@ -1,4 +1,4 @@
-import { Games } from '../types/types_twitch';
+import { Games } from '../types/types-twitch';
 
 export const returnFixedTwitchGame = (games: Games) => {
 	// set a height and width, then take out the {} from the url

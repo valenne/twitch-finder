@@ -6,5 +6,5 @@ export {
 	roundedFollowers,
 	stringToCapitalCase
 } from './helpers';
-export { returnFixedTwitchGame } from './returnFixedUrlTwitchGame';
-export { returnDataEmoteByFormatType } from './returnNewEmoteData';
+export { returnFixedTwitchGame } from './return-fixed-url-twitch-game';
+export { returnDataEmoteByFormatType } from './return-new-emote-data';

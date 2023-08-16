@@ -1,0 +1,15 @@
+---
+import { CapibaraErrorNotFound } from '../components/404/CapibaraErrorNotFound';
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title='404 - Error 😔'>
+	<section
+		id='error-404'
+		class='fixed flex flex-col justify-center align-middle h-full w-full mx-auto top-10'>
+		<div class='flex flex-col text-center gap-10'>
+			<CapibaraErrorNotFound />
+			<h1 class='text-4xl text-center'>An unexpected error has occurred</h1>
+		</div>
+	</section>
+</MainLayout>

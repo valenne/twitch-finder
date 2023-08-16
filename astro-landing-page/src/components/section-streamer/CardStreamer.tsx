@@ -1,5 +1,5 @@
 import { relativeTime, roundedFollowers } from '../../helper/helpers.js'
-import { TwitchProps } from '../../types/typesExporter'
+import { TwitchProps } from '../../types/types-exporter.js'
 import { IconLoading } from '../icons/icon-exporter.js'
 
 type CardProps = {
@@ -9,7 +9,10 @@ export function CardStreamer ({ twitch }: CardProps) {
   return (
     <div className='flex mx-auto place-items-center'>
       {twitch ? (
-        <div className='max-w-md bg-[#1f1f23] text-[#e0d5b0] py-4 px-8 rounded-lg my-20 mx-auto cursor-pointer opacity-80 hover:opacity-100 group shadow-[5px_5px_0px_0px_#BF92EF] hover:shadow-[5px_5px_0px_0px_#97419B] transition-all duration-300 ease-in-out'>
+        <a
+          className='max-w-md bg-[#1f1f23] text-[#e0d5b0] py-4 px-8 rounded-lg my-20 mx-auto cursor-pointer opacity-80 hover:opacity-100 group shadow-[5px_5px_0px_0px_#BF92EF] hover:shadow-[5px_5px_0px_0px_#97419B] transition-all duration-300 ease-in-out'
+          href={`streamer?name=${twitch.streamer?.display_name}`}
+        >
           <div className='flex justify-center -mt-16 md:justify-end'>
             <img
               className={`after:relative w-20 h-20 object-cover rounded-full aspect-square border-4 ${
@@ -108,7 +111,7 @@ export function CardStreamer ({ twitch }: CardProps) {
               </p>
             </div>
           </div>
-        </div>
+        </a>
       ) : (
         <div className=''>
           <div className='text-center'>

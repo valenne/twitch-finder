@@ -47,7 +47,7 @@ Inside of your Astro project, you'll see the following folders and files:
 │   │   │  └──ContentCard.tsx
 │   │   │  └──ContentSection.tsx
 │   │   ├──section-hero/
-│   │   │  └──intro_draw_parth.css
+│   │   │  └──intro-draw-parth.css
 │   │   │  └──Intro.astro
 │   │   ├──section-nav/
 │   │   │  └──Nav.tsx
@@ -55,17 +55,17 @@ Inside of your Astro project, you'll see the following folders and files:
 │   │   ├──section-streamer/
 │   │   │  └──CardStreamer.tsx
 │   │   │  └──TwitchStreamer.tsx
-│   ├── config/
-│   │   └── [text]("./src/config/environment-variables.ts")
+│   ├── config
+│   │   └── environment-variables.ts
 │   └── data/
-│   │   └── twitchAuth.ts
+│   │   └── twitch-auth.ts
 │   └── helper/
-│   │   └── helpersExporter.ts
+│   │   └── helper-exporter.ts
 │   │   └── helpers.ts
-│   │   └── returnFixedUrlTwitchGame.ts
-│   │   └── returnNewEmoteData.ts
+│   │   └── return-fixed-url-twitch-game.ts
+│   │   └── return-new-emote-data.ts
 │   ├── hooks/
-│   │   └── hookExporter.ts
+│   │   └── hook-exporter.ts
 │   │   └── useMediaQuery.ts
 │   │   └── useTwitchApiData.ts
 │   │   └── useTwitchHooks.ts
@@ -75,13 +75,13 @@ Inside of your Astro project, you'll see the following folders and files:
 │       └── index.astro
 │       └── streamer.astro
 │   └── types/
-│       └── typesExporter.ts
+│       └── types-exporter.ts
 │       └── constants.ts
 │       └── types.d.ts
-│       └── types_twitch.d.ts
+│       └── types-twitch.d.ts
 │   └── utils/
-│       └── animatedNumbers.ts
-│       └── drawingStroke.ts
+│       └── animated-numbers.ts
+│       └── drawing-stroke.ts
 └── package.json
 ```
 
@@ -106,8 +106,8 @@ All commands are run from the root of the project, from a terminal:
 
 ## Images
 
-![input](image.png)
-![response](image-2.png)
+![input](readme/image.png)
+![response](readme/image-2.png)
 
 on click card, show you in a new page, information about the streamer, like:
 

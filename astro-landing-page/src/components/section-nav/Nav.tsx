@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { avatarImg } from '../../assets/images/image_export'
-import { getWindowSize } from '../../hooks/hooksExporter'
+import { avatarImg } from '../../assets/images/image-export'
+import { getWindowSize } from '../../hooks/hooks-exporter'
 import { TittleAnimation } from './TittleAnimation'
 
 // motion config animated links
@@ -43,9 +43,11 @@ function Nav () {
 
   return (
     <nav className='sticky top-0 mb-24 bg-[#0e0e10] z-50 w-full mx-auto'>
-      <div className='flex flex-row items-center justify-between h-full pt-12 pb-6 mx-12 font-medium md:mx-16 lg:mx-32'>
+      <div className='relative flex flex-row items-center justify-between h-full pt-12 pb-6 mx-12 font-medium md:mx-16 lg:mx-32'>
         {/* separator line */}
-        <span className='absolute bottom-0 left-1/2 -translate-x-1/2 w-[250px] h-[2px] bg-[#97419B]'></span>
+        <div className='absolute grid place-content-center bottom-0 translate-x-1/2 right-1/2'>
+          <span className='w-[240px] h-[2px] bg-[#97419B]'></span>
+        </div>
         <div>
           <img
             className='rounded-full object-cover aspect-square border-2 border-[#aeaaa8] hover:border-t-[#97419B] hover:border-r-[#BF92EF] hover:border-b-[#e0d5b0] hover:border-l-[#dedee3] hover:border-2 transition-all duration-300 ease-in-out'
@@ -90,7 +92,7 @@ function Nav () {
 
         <div className='group'>
           <h1 className='text-3xl font-bold '>
-            <TittleAnimation twClass='text-sm group-hover:text-[#e0d5b0]' />
+            <TittleAnimation twClass='text-sm group-hover:text-[#e0d5b0] absolute bottom-7 translate-x-1/2 ' />
           </h1>
         </div>
 
