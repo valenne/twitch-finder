@@ -54,7 +54,7 @@ export function TwitchStreamer () {
           {channel.is_live ? (
             <div className=' p-5 bg-[#1f1f23] rounded-lg'>
               <iframe
-                src={`https://player.twitch.tv/?channel=${streamer.login_name}&parent=https://twitch-finder.vercel.app/`}
+                src={`https://player.twitch.tv/?channel=${streamer.login_name}&parent=twitch-finder.vercel.app/`}
                 width='400'
                 height='300'
                 title={`stream live twitch/${streamer.login_name}`}
